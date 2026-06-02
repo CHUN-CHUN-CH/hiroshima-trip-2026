@@ -156,6 +156,328 @@ if (mapList) {
   });
 }
 
+const foodAreas = [
+  ["hiroshima-station", "廣島站 / ekie"],
+  ["hondori", "紙屋町 / 本通 / 和平公園"],
+  ["hatchobori", "八丁堀 / 流川"],
+  ["miyajima", "宮島 / 宮島口"],
+  ["onomichi", "尾道"],
+  ["kure", "吳市"],
+  ["saijo", "西條酒藏"],
+  ["ujina", "宇品 / 廣島港"],
+];
+
+const foodCategories = [
+  ["okonomiyaki", "廣島燒"],
+  ["oyster", "牡蠣"],
+  ["anago", "穴子飯"],
+  ["ramen", "拉麵 / 麵類"],
+  ["cafe", "咖啡 / 甜點"],
+  ["izakaya", "居酒屋 / 晚餐"],
+  ["sake", "清酒 / 酒藏"],
+  ["backup", "多人備案"],
+];
+
+const foodItems = [
+  {
+    name: "お好み焼 長田屋 NAGATA-YA",
+    area: "hondori",
+    categories: ["okonomiyaki", "backup"],
+    reason: "靠近原爆圓頂與和平公園，抵達日或市區半日後很順。",
+    budget: "約 ¥1,500-2,500",
+    group: "中等，尖峰需排隊",
+    query: "Okonomiyaki Nagataya Hiroshima",
+  },
+  {
+    name: "お好み村 Okonomimura",
+    area: "hatchobori",
+    categories: ["okonomiyaki", "backup"],
+    reason: "整棟都是廣島燒店，大家意見分歧時很適合現場分散選。",
+    budget: "約 ¥1,500-2,500",
+    group: "適合分組，不適合全團擠同一家",
+    query: "Okonomimura Hiroshima",
+  },
+  {
+    name: "みっちゃん総本店 ekie 店",
+    area: "hiroshima-station",
+    categories: ["okonomiyaki", "backup"],
+    reason: "在廣島站 ekie，適合搭車前後或有人不想走遠時。",
+    budget: "約 ¥1,500-2,800",
+    group: "中等，車站店尖峰可能排隊",
+    query: "Micchan Sohonten ekie Hiroshima",
+  },
+  {
+    name: "麗ちゃん",
+    area: "hiroshima-station",
+    categories: ["okonomiyaki"],
+    reason: "廣島站周邊經典廣島燒候選，適合第一餐或回程前。",
+    budget: "約 ¥1,500-2,500",
+    group: "中等，建議避開用餐尖峰",
+    query: "Reichan Hiroshima okonomiyaki",
+  },
+  {
+    name: "八昌 薬研堀",
+    area: "hatchobori",
+    categories: ["okonomiyaki", "izakaya"],
+    reason: "流川、藥研堀一帶名店候選，適合晚上小組吃。",
+    budget: "約 ¥1,500-3,000",
+    group: "偏難，排隊與座位要有心理準備",
+    query: "Hassho Yagenbori Hiroshima",
+  },
+  {
+    name: "焼がきのはやし",
+    area: "miyajima",
+    categories: ["oyster"],
+    reason: "宮島表參道上的牡蠣名店，宮島日午餐很直覺。",
+    budget: "約 ¥2,000-4,500",
+    group: "中等，容易排隊",
+    query: "Yakigaki no Hayashi Miyajima",
+  },
+  {
+    name: "牡蠣屋 Kakiya",
+    area: "miyajima",
+    categories: ["oyster", "izakaya"],
+    reason: "宮島牡蠣專門店，想吃牡蠣定食或小酌可列入。",
+    budget: "約 ¥2,000-5,000",
+    group: "中等",
+    query: "Kakiya Miyajima",
+  },
+  {
+    name: "あなごめし うえの",
+    area: "miyajima",
+    categories: ["anago"],
+    reason: "宮島口知名穴子飯，適合搭船前後，但排隊機率高。",
+    budget: "約 ¥2,500-4,000",
+    group: "偏難，建議分組或外帶",
+    query: "Anagomeshi Ueno Miyajimaguchi",
+  },
+  {
+    name: "くらわんか Kurawanka",
+    area: "miyajima",
+    categories: ["okonomiyaki", "oyster"],
+    reason: "宮島上的廣島燒候選，想在島上吃鐵板類可看。",
+    budget: "約 ¥1,500-3,000",
+    group: "中等，尖峰請多抓時間",
+    query: "Kurawanka Miyajima okonomiyaki",
+  },
+  {
+    name: "紅葉堂 / 紅葉饅頭周邊店",
+    area: "miyajima",
+    categories: ["cafe", "backup"],
+    reason: "宮島甜點與伴手禮補給，適合大家分散買完再集合。",
+    budget: "約 ¥300-1,000",
+    group: "適合多人分散買",
+    query: "Momijido Miyajima",
+  },
+  {
+    name: "牡蠣船 かなわ",
+    area: "hondori",
+    categories: ["oyster", "izakaya"],
+    reason: "市區想正式吃牡蠣料理時的候選，適合晚餐。",
+    budget: "約 ¥3,000-7,000",
+    group: "適合，建議訂位",
+    query: "Kanawa Hiroshima oyster boat",
+  },
+  {
+    name: "瀨戶內料理 雑草庵",
+    area: "hatchobori",
+    categories: ["izakaya", "oyster"],
+    reason: "想吃瀨戶內料理、海鮮與小酌，可排自由日晚餐。",
+    budget: "約 ¥4,000-7,000",
+    group: "適合，建議訂位",
+    query: "Zassoan Hiroshima",
+  },
+  {
+    name: "廣島沾麵 Bakudanya",
+    area: "hondori",
+    categories: ["ramen", "backup"],
+    reason: "不想吃正餐太久時的快速麵類候選，辣度可調。",
+    budget: "約 ¥900-1,500",
+    group: "中等，適合分批",
+    query: "Bakudanya Hiroshima tsukemen",
+  },
+  {
+    name: "汁なし担担麺 武蔵坊",
+    area: "hondori",
+    categories: ["ramen", "backup"],
+    reason: "廣島市區常見的汁なし担担麵，想快速吃辣可選。",
+    budget: "約 ¥900-1,500",
+    group: "中等，適合分批",
+    query: "Musashibo Hiroshima tantanmen",
+  },
+  {
+    name: "OBSCURA Coffee Roasters Hiroshima",
+    area: "hondori",
+    categories: ["cafe", "backup"],
+    reason: "市區咖啡休息點，適合等人、避暑或雨天切換節奏。",
+    budget: "約 ¥600-1,500",
+    group: "依座位狀況，適合小組",
+    query: "Obscura Coffee Roasters Hiroshima",
+  },
+  {
+    name: "尾道ラーメン 壱番館",
+    area: "onomichi",
+    categories: ["ramen"],
+    reason: "尾道自由日拉麵候選，想吃尾道拉麵可先看這間。",
+    budget: "約 ¥900-1,500",
+    group: "偏難，建議分批",
+    query: "Onomichi Ramen Ichibankan",
+  },
+  {
+    name: "尾道ラーメン たに",
+    area: "onomichi",
+    categories: ["ramen"],
+    reason: "尾道站周邊拉麵候選，適合不想走太遠的人。",
+    budget: "約 ¥900-1,500",
+    group: "中等，尖峰需排隊",
+    query: "Onomichi Ramen Tani",
+  },
+  {
+    name: "ONOMICHI U2 Yard Cafe",
+    area: "onomichi",
+    categories: ["cafe", "backup"],
+    reason: "尾道海邊休息點，適合走累、太熱或等回程。",
+    budget: "約 ¥800-2,000",
+    group: "中等，適合小組休息",
+    query: "ONOMICHI U2 Yard Cafe",
+  },
+  {
+    name: "からさわ Karasawa",
+    area: "onomichi",
+    categories: ["cafe"],
+    reason: "尾道甜點冰品候選，適合坡道散步後補一站。",
+    budget: "約 ¥400-1,000",
+    group: "適合分散買",
+    query: "Karasawa ice cream Onomichi",
+  },
+  {
+    name: "海軍さんの麦酒舘",
+    area: "kure",
+    categories: ["izakaya", "backup"],
+    reason: "吳市港邊與博物館行程後的晚餐/啤酒候選。",
+    budget: "約 ¥1,500-4,000",
+    group: "中等，建議先確認營業",
+    query: "Kaigunsan no Bakushukan Kure",
+  },
+  {
+    name: "吳海自咖哩周邊店",
+    area: "kure",
+    categories: ["backup", "izakaya"],
+    reason: "吳市特色是海自咖哩，可依博物館附近現場選店。",
+    budget: "約 ¥1,000-2,000",
+    group: "依店家，適合分組",
+    query: "Kure Kaiji Curry",
+  },
+  {
+    name: "くぐり門珈琲店",
+    area: "saijo",
+    categories: ["cafe", "sake", "backup"],
+    reason: "西條酒藏街休息點，咖啡與伴手禮都方便。",
+    budget: "約 ¥600-1,500",
+    group: "中等，適合小組",
+    query: "Kugurimon Coffee Saijo Hiroshima",
+  },
+  {
+    name: "賀茂鶴酒造",
+    area: "saijo",
+    categories: ["sake"],
+    reason: "西條清酒代表之一，適合酒藏街散步與試飲。",
+    budget: "試飲與購物依現場",
+    group: "適合小組，喝酒請注意回程",
+    query: "Kamotsuru Sake Brewery Saijo Hiroshima",
+  },
+  {
+    name: "佛蘭西屋",
+    area: "saijo",
+    categories: ["sake", "izakaya"],
+    reason: "西條酒藏街用餐候選，想把清酒與餐一起排可看。",
+    budget: "約 ¥2,000-5,000",
+    group: "中等，建議先確認座位",
+    query: "Buranseya Saijo Hiroshima",
+  },
+  {
+    name: "宇品港周邊簡餐 / 便利商店",
+    area: "ujina",
+    categories: ["backup"],
+    reason: "花火日不要幻想慢慢找餐廳，先買水、飯糰、簡單食物最穩。",
+    budget: "約 ¥500-1,500",
+    group: "適合多人快速補給",
+    query: "Hiroshima Port Ujina convenience store",
+  },
+  {
+    name: "廣島港周邊咖啡備案",
+    area: "ujina",
+    categories: ["cafe", "backup"],
+    reason: "花火集合太早或太熱時，用來短暫休息與等人。",
+    budget: "約 ¥600-1,500",
+    group: "依座位狀況",
+    query: "cafe Hiroshima Port Ujina",
+  },
+];
+
+function createFoodCard(item) {
+  const areaLabel = foodAreas.find(([key]) => key === item.area)?.[1] || item.area;
+  const categoryLabels = item.categories
+    .map((category) => foodCategories.find(([key]) => key === category)?.[1] || category)
+    .join(" / ");
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.query)}`;
+  const article = document.createElement("article");
+  article.className = "food-card";
+  article.innerHTML = `
+    <span class="food-card__area">${areaLabel}</span>
+    <h3>${item.name}</h3>
+    <p>${item.reason}</p>
+    <dl>
+      <div><dt>類型</dt><dd>${categoryLabels}</dd></div>
+      <div><dt>預算</dt><dd>${item.budget}</dd></div>
+      <div><dt>多人</dt><dd>${item.group}</dd></div>
+    </dl>
+    <a href="${mapUrl}" target="_blank" rel="noreferrer">Google Map</a>
+  `;
+  return article;
+}
+
+function renderFoodSections(container, groups, getItems) {
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = "";
+  groups.forEach(([key, label]) => {
+    const items = getItems(key);
+    if (!items.length) {
+      return;
+    }
+
+    const section = document.createElement("section");
+    section.className = "spot-section food-section";
+    section.innerHTML = `<h3>${label}</h3><div class="food-grid"></div>`;
+    const grid = section.querySelector(".food-grid");
+    items.forEach((item) => grid.append(createFoodCard(item)));
+    container.append(section);
+  });
+}
+
+const foodAreaContainer = document.querySelector("[data-food-areas]");
+const foodCategoryContainer = document.querySelector("[data-food-categories]");
+const foodModeButtons = document.querySelectorAll("[data-food-view]");
+const foodModes = document.querySelectorAll("[data-food-mode]");
+
+if (foodAreaContainer || foodCategoryContainer) {
+  renderFoodSections(foodAreaContainer, foodAreas, (area) => foodItems.filter((item) => item.area === area));
+  renderFoodSections(foodCategoryContainer, foodCategories, (category) => foodItems.filter((item) => item.categories.includes(category)));
+
+  foodModeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const view = button.dataset.foodView;
+      foodModeButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+      foodModes.forEach((mode) => {
+        mode.classList.toggle("is-hidden", mode.dataset.foodMode !== view);
+      });
+    });
+  });
+}
+
 const checklist = document.querySelector("[data-checklist]");
 if (checklist) {
   const checkboxes = checklist.querySelectorAll("input[type='checkbox']");
