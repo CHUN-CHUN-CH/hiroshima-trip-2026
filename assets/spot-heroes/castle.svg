@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#d8ecf3"/>
+  <rect y="660" width="1200" height="240" fill="#6fa7b7"/>
+  <rect x="420" y="495" width="340" height="230" fill="#fbfaf7"/>
+  <rect x="470" y="390" width="240" height="115" fill="#fbfaf7"/>
+  <rect x="520" y="300" width="140" height="90" fill="#fbfaf7"/>
+  <path d="M385 495h380l-55-55H445z" fill="#1d2328"/>
+  <path d="M440 390h280l-48-48H488z" fill="#1d2328"/>
+  <path d="M500 300h180l-40-40H540z" fill="#1d2328"/>
+  <text x="600" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="700" fill="#1d2328">Castle</text>
+</svg>

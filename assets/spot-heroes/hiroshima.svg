@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#d8ecf3"/>
+  <rect y="560" width="1200" height="340" fill="#fbfaf7"/>
+  <circle cx="930" cy="180" r="90" fill="#c88a28" opacity=".9"/>
+  <path d="M0 580C210 470 360 590 520 505c170-90 315-50 480 25 75 35 140 45 200 30v340H0z" fill="#2f6f5e"/>
+  <path d="M230 610h540v38H230z" fill="#b54035"/>
+  <path d="M270 648h58v170h-58zm402 0h58v170h-58z" fill="#b54035"/>
+  <path d="M350 690h290v44H350z" fill="#b54035"/>
+  <text x="600" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="76" font-weight="700" fill="#1d2328">Hiroshima Trip</text>
+</svg>

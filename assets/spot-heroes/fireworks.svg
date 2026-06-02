@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#1d2328"/>
+  <rect y="650" width="1200" height="250" fill="#244f66"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M300 260l-80-80m80 80l0-120m0 120l80-80m-80 80l120 0m-120 0l80 80m-80-80l0 120m0-120l-80 80m80-80l-120 0" stroke="#c88a28" stroke-width="18"/>
+    <path d="M800 330l-70-70m70 70l0-105m0 105l70-70m-70 70l105 0m-105 0l70 70m-70-70l0 105m0-105l-70 70m70-70l-105 0" stroke="#b54035" stroke-width="16"/>
+  </g>
+  <path d="M90 700c180-65 350-65 520 0s340 65 510 0" fill="none" stroke="#fbfaf7" stroke-width="16"/>
+  <text x="600" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="700" fill="#fbfaf7">Fireworks</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#d8ecf3"/>
+  <rect y="620" width="1200" height="280" fill="#6fa7b7"/>
+  <path d="M80 650c90-120 180-120 270 0s180 120 270 0 180-120 270 0 180 120 270 0" fill="none" stroke="#b54035" stroke-width="36"/>
+  <path d="M80 680h1080" stroke="#96342d" stroke-width="26"/>
+  <path d="M0 760c200-35 410-30 635 25 110 27 240 28 365 0 70-16 135-20 200-10v125H0z" fill="#2f6f5e"/>
+  <text x="600" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="700" fill="#1d2328">Kintaikyo</text>
+</svg>

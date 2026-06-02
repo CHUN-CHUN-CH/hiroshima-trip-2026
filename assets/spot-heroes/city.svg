@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#d8ecf3"/>
+  <rect y="620" width="1200" height="280" fill="#fbfaf7"/>
+  <rect x="210" y="420" width="110" height="260" fill="#2f6f5e"/>
+  <rect x="360" y="330" width="150" height="350" fill="#b54035"/>
+  <rect x="560" y="390" width="120" height="290" fill="#2f6f5e"/>
+  <rect x="730" y="300" width="190" height="380" fill="#c88a28"/>
+  <path d="M180 710h760" stroke="#1d2328" stroke-width="18"/>
+  <text x="600" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="74" font-weight="700" fill="#1d2328">Hondori</text>
+</svg>

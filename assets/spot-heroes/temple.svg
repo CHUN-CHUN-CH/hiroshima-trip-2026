@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#d8ecf3"/>
+  <rect y="640" width="1200" height="260" fill="#2f6f5e"/>
+  <rect x="380" y="500" width="440" height="210" fill="#fbfaf7"/>
+  <path d="M320 500l280-150 300 150z" fill="#b54035"/>
+  <path d="M355 450h490" stroke="#96342d" stroke-width="34"/>
+  <rect x="560" y="570" width="80" height="140" fill="#c88a28"/>
+  <text x="600" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="74" font-weight="700" fill="#1d2328">Temple</text>
+</svg>

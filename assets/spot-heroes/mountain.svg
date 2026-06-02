@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#cfe4ef"/>
+  <path d="M0 740l300-410 180 230 170-290 350 470z" fill="#2f6f5e"/>
+  <path d="M210 760h820" stroke="#6fa7b7" stroke-width="40"/>
+  <line x1="280" y1="355" x2="880" y2="520" stroke="#1d2328" stroke-width="10"/>
+  <rect x="700" y="485" width="95" height="65" rx="14" fill="#b54035"/>
+  <circle cx="930" cy="190" r="80" fill="#c88a28"/>
+  <text x="600" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="70" font-weight="700" fill="#1d2328">Mt. Misen</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#fbfaf7"/>
+  <rect y="620" width="1200" height="280" fill="#d8ecf3"/>
+  <rect x="220" y="390" width="190" height="350" fill="#ffffff" stroke="#d9e1e6" stroke-width="8"/>
+  <rect x="455" y="330" width="190" height="410" fill="#ffffff" stroke="#d9e1e6" stroke-width="8"/>
+  <rect x="690" y="420" width="190" height="320" fill="#ffffff" stroke="#d9e1e6" stroke-width="8"/>
+  <rect x="250" y="330" width="70" height="60" fill="#b54035"/>
+  <rect x="525" y="250" width="70" height="80" fill="#b54035"/>
+  <rect x="745" y="350" width="70" height="70" fill="#b54035"/>
+  <path d="M190 740h720" stroke="#2f6f5e" stroke-width="20"/>
+  <text x="600" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="700" fill="#1d2328">Saijo Sake</text>
+</svg>

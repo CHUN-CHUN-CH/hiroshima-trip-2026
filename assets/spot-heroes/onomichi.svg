@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#d8ecf3"/>
+  <rect y="610" width="1200" height="290" fill="#6fa7b7"/>
+  <path d="M0 690l260-260 160 120 180-185 180 150 185-205 235 250v340H0z" fill="#2f6f5e"/>
+  <path d="M410 585h280v170H410z" fill="#fbfaf7"/>
+  <path d="M385 585l155-105 175 105z" fill="#b54035"/>
+  <path d="M170 725c210-55 420-50 635 15 90 27 165 31 225 10" fill="none" stroke="#fbfaf7" stroke-width="16"/>
+  <text x="600" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="74" font-weight="700" fill="#1d2328">Onomichi</text>
+</svg>
