@@ -396,22 +396,42 @@ footer p {
   .topbar {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     width: calc(100% - 16px);
+    top: 8px;
+    padding: 6px;
   }
 
   .topbar a {
-    font-size: 13px;
+    padding: 7px 4px;
+    font-size: 12px;
   }
 
   .manual {
-    top: 68px;
+    position: static;
+    margin: 16px auto 24px;
+    padding: 12px;
     grid-template-columns: 1fr;
+    gap: 10px;
+    box-shadow: none;
   }
 
   .manual p {
     display: none;
   }
 
-  .manual__grid,
+  .manual h2 {
+    font-size: 22px;
+  }
+
+  .manual__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .manual__grid a {
+    padding: 8px 6px;
+    font-size: 13px;
+  }
+
   .summary,
   .info-grid {
     grid-template-columns: 1fr;
