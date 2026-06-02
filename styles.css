@@ -514,18 +514,40 @@ footer p {
   padding: 24px 16px 34px;
   display: grid;
   align-content: end;
+  overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(15, 24, 29, 0.18), rgba(15, 24, 29, 0.78)),
-    var(--spot-image, url("assets/spot-heroes/hiroshima.svg"))
-      center / cover;
+    linear-gradient(180deg, rgba(15, 24, 29, 0.12), rgba(15, 24, 29, 0.66)),
+    #3f4b53;
   color: white;
 }
 
 .spot-hero--miyajima {
   background:
-    linear-gradient(180deg, rgba(15, 24, 29, 0.18), rgba(15, 24, 29, 0.78)),
-    var(--spot-image, url("assets/spot-heroes/miyajima.svg"))
-      center / cover;
+    linear-gradient(180deg, rgba(15, 24, 29, 0.12), rgba(15, 24, 29, 0.66)),
+    #3f4b53;
+}
+
+.spot-hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.spot-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(15, 24, 29, 0.08), rgba(15, 24, 29, 0.72));
+}
+
+.spot-hero > :not(.spot-hero__image) {
+  position: relative;
+  z-index: 2;
 }
 
 .back-link {

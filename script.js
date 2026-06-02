@@ -238,7 +238,19 @@ const meta = spotMeta[currentSpot];
 const spotPage = document.querySelector(".spot-page");
 
 if (meta && spotPage) {
-  document.querySelector(".spot-hero")?.style.setProperty("--spot-image", `url("${meta.image}")`);
+  const spotHero = document.querySelector(".spot-hero");
+
+  if (spotHero && !spotHero.querySelector(".spot-hero__image")) {
+    const heroImage = document.createElement("img");
+    heroImage.className = "spot-hero__image";
+    heroImage.src = meta.image;
+    heroImage.alt = "";
+    heroImage.decoding = "async";
+    heroImage.addEventListener("error", () => {
+      spotHero.classList.add("is-image-missing");
+    });
+    spotHero.prepend(heroImage);
+  }
 
   const tagSection = document.createElement("section");
   tagSection.className = "spot-section";
