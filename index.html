@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>2026 廣島朋友旅行</title>
+    <title>2026 廣島朋友旅行手冊</title>
     <meta
       name="description"
-      content="2026/7/23-7/29 廣島多人旅行行程表，包含嚴島神社、花火大會、自由活動與交通時間。"
+      content="2026/7/23-7/29 廣島多人旅行手冊，含集合規則、點到點交通、景點背景、自由活動與來源參考。"
     />
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
@@ -18,21 +18,34 @@
   <body>
     <header class="hero">
       <nav class="topbar" aria-label="主要導覽">
+        <a href="#manual">手冊</a>
         <a href="#schedule">行程</a>
+        <a href="#spots">景點</a>
         <a href="#transport">交通</a>
-        <a href="#free">自由活動</a>
-        <a href="#notes">提醒</a>
+        <a href="#refs">REF</a>
       </nav>
       <div class="hero__content">
         <p class="eyebrow">2026/7/23 - 7/29</p>
-        <h1>廣島朋友旅行</h1>
-        <p>
-          一起去嚴島神社、看廣島港花火，也保留幾天各自分組走。多人旅行不用每天黏在一起，才會玩得舒服。
-        </p>
+        <h1>廣島朋友旅行手冊</h1>
+        <p>一起走核心行程，也保留分組自由。這份手冊把時間、背景、來源都放好，朋友問起來不用現場掰。</p>
       </div>
     </header>
 
     <main>
+      <section id="manual" class="manual">
+        <div>
+          <p class="eyebrow">Trip Manual</p>
+          <h2>先看這裡</h2>
+        </div>
+        <div class="manual__grid">
+          <a href="#day-724">嚴島神社必集合</a>
+          <a href="#day-725">7/25 晚上花火</a>
+          <a href="#day-726">7/26 完全自由</a>
+          <a href="#spots">景點背景</a>
+        </div>
+        <p>多人旅行規則：每天只抓一個主集合點；交通多抓 15-30 分鐘；自由日不強迫一起吃飯。</p>
+      </section>
+
       <section class="summary" aria-label="旅行重點">
         <article>
           <span>必集合</span>
@@ -43,24 +56,21 @@
           <strong>7/26 完全自由，7/27 分組</strong>
         </article>
         <article>
-          <span>航班</span>
-          <strong>CI112 去程，CI113 回程</strong>
+          <span>給朋友看</span>
+          <strong>每個景點都有 REF，不怕被說唬爛</strong>
         </article>
       </section>
 
       <section id="schedule" class="section">
         <div class="section__head">
           <p class="eyebrow">Schedule</p>
-          <h2>每日行程</h2>
+          <h2>每日行程抽屜</h2>
+          <p>預設收起來，手機不會一路滑到累。要看哪天就打開哪天。</p>
         </div>
 
-        <div class="timeline">
-          <article class="day-card">
-            <div class="day-card__date">
-              <span>7/23 四</span>
-              <b>抵達日</b>
-            </div>
-            <div class="badge badge--soft">半集合</div>
+        <div class="drawer-list">
+          <details class="drawer" open>
+            <summary><span>7/23 四</span><strong>抵達日：半集合</strong></summary>
             <ol>
               <li><time>10:35</time>抵達廣島機場</li>
               <li><time>10:35-11:45</time>入境、拿行李、買票、上廁所</li>
@@ -69,14 +79,10 @@
               <li><time>14:30-17:00</time>半自由：和平公園、本通、咖啡休息</li>
               <li><time>18:30</time>集合吃第一餐廣島燒</li>
             </ol>
-          </article>
+          </details>
 
-          <article class="day-card day-card--must">
-            <div class="day-card__date">
-              <span>7/24 五</span>
-              <b>宮島一日</b>
-            </div>
-            <div class="badge badge--must">必集合</div>
+          <details id="day-724" class="drawer drawer--must" open>
+            <summary><span>7/24 五</span><strong>宮島 + 嚴島神社：必集合</strong></summary>
             <ol>
               <li><time>08:30</time>飯店集合出發</li>
               <li><time>09:15-09:45</time>JR 廣島站到宮島口</li>
@@ -87,14 +93,10 @@
               <li><time>15:00-16:30</time>自由分組：咖啡、伴手禮、彌山纜車</li>
               <li><time>16:30-17:30</time>渡輪 + JR 回廣島市區</li>
             </ol>
-          </article>
+          </details>
 
-          <article class="day-card">
-            <div class="day-card__date">
-              <span>7/25 六</span>
-              <b>花火日</b>
-            </div>
-            <div class="badge badge--soft">白天自由 / 晚上集合</div>
+          <details id="day-725" class="drawer">
+            <summary><span>7/25 六</span><strong>白天自由，晚上花火集合</strong></summary>
             <ol>
               <li><time>09:30-15:30</time>自由活動：廣島城、縮景園、購物、補眠</li>
               <li><time>16:30</time>飯店或本通集合</li>
@@ -103,54 +105,35 @@
               <li><time>20:00-21:00</time>廣島港夢花火大會</li>
               <li><time>21:00-22:30</time>散場回市區，人潮會慢</li>
             </ol>
-          </article>
+          </details>
 
-          <article class="day-card">
-            <div class="day-card__date">
-              <span>7/26 日</span>
-              <b>自由活動日</b>
-            </div>
-            <div class="badge badge--free">完全自由</div>
-            <ol>
-              <li><time>全天</time>尾道、吳市、宮島二刷、市區購物都可以</li>
-              <li><time>19:00</time>想一起吃飯的人再集合，不強制</li>
-            </ol>
-          </article>
+          <details id="day-726" class="drawer">
+            <summary><span>7/26 日</span><strong>完全自由活動日</strong></summary>
+            <p>這天真的放掉：尾道、吳市、宮島二刷、市區購物都可以。晚上只約「想吃飯的人 19:00 集合」。</p>
+          </details>
 
-          <article class="day-card">
-            <div class="day-card__date">
-              <span>7/27 一</span>
-              <b>分組日</b>
-            </div>
-            <div class="badge badge--free">分組</div>
+          <details class="drawer">
+            <summary><span>7/27 一</span><strong>分組日</strong></summary>
             <ol>
               <li><time>09:00</time>A 組尾道出發：約 1.5 小時到</li>
               <li><time>10:00</time>B 組吳市出發：約 45 分鐘到</li>
               <li><time>自由</time>C 組市區慢行：縮景園、本通、咖啡</li>
               <li><time>19:00</time>可集合晚餐</li>
             </ol>
-          </article>
+          </details>
 
-          <article class="day-card">
-            <div class="day-card__date">
-              <span>7/28 二</span>
-              <b>最後一天</b>
-            </div>
-            <div class="badge badge--soft">半集合</div>
+          <details class="drawer">
+            <summary><span>7/28 二</span><strong>最後一天：半集合</strong></summary>
             <ol>
               <li><time>09:30-14:30</time>半自由：岩國錦帶橋、西條酒藏、市區購物</li>
               <li><time>15:30-17:30</time>回廣島市區買伴手禮、整理行李</li>
               <li><time>18:30</time>最後晚餐集合</li>
               <li><time>21:00</time>回飯店整理行李</li>
             </ol>
-          </article>
+          </details>
 
-          <article class="day-card">
-            <div class="day-card__date">
-              <span>7/29 三</span>
-              <b>回台灣</b>
-            </div>
-            <div class="badge badge--must">集合</div>
+          <details class="drawer">
+            <summary><span>7/29 三</span><strong>回台灣</strong></summary>
             <ol>
               <li><time>07:45</time>飯店集合 / 退房</li>
               <li><time>08:00-08:30</time>利木津巴士往廣島機場</li>
@@ -158,7 +141,123 @@
               <li><time>11:35</time>CI113 廣島起飛</li>
               <li><time>13:15</time>抵達桃園</li>
             </ol>
-          </article>
+          </details>
+        </div>
+      </section>
+
+      <section id="spots" class="section">
+        <div class="section__head">
+          <p class="eyebrow">Spots & Stories</p>
+          <h2>景點介紹與歷史背景</h2>
+          <p>每個抽屜都有來源，朋友質疑時直接甩 REF。</p>
+        </div>
+
+        <div class="drawer-list">
+          <details class="drawer drawer--must" open>
+            <summary><span>宮島</span><strong>嚴島神社：為什麼神社像浮在海上？</strong></summary>
+            <p>
+              嚴島神社所在的宮島自古被視為神聖之地。UNESCO 說島上的自然物與山岳本身就是信仰焦點，神社建築則和海、山、森林一起構成景觀。現在看到的神社樣式反映 12 世紀平安時代的審美，和當時權力者平清盛的推動有關。
+            </p>
+            <p>
+              有趣點：它不是只有一座紅色鳥居好拍，而是「海、神社、彌山」整組一起被看待。潮汐不同，鳥居會從「海上漂浮」變成「可以走近看」。
+            </p>
+            <p class="refs">
+              REF:
+              <a href="https://whc.unesco.org/en/list/776" target="_blank" rel="noreferrer">UNESCO</a>
+              <a href="https://www.miyajima.or.jp/english/spot/spot_itsukushima.html" target="_blank" rel="noreferrer">Miyajima Tourist Association</a>
+              <a href="https://itsukushimajinja.jp/en/history.html" target="_blank" rel="noreferrer">Itsukushima Shrine</a>
+            </p>
+          </details>
+
+          <details class="drawer">
+            <summary><span>廣島市區</span><strong>原爆圓頂 / 和平紀念公園</strong></summary>
+            <p>
+              原爆圓頂是 1945 年 8 月 6 日原子彈爆炸後，爆心附近少數仍保留下來的建築之一。UNESCO 將它列為世界遺產，重點不是建築多華麗，而是它作為和平與核武廢絕象徵的意義。
+            </p>
+            <p>
+              建議走法：先看原爆圓頂，再進和平紀念資料館。這段不適合排得太趕，因為資料館會很沉重，留一點時間消化比較好。
+            </p>
+            <p class="refs">
+              REF:
+              <a href="https://whc.unesco.org/en/list/775" target="_blank" rel="noreferrer">UNESCO</a>
+              <a href="https://hpmmuseum.jp/?lang=eng" target="_blank" rel="noreferrer">Hiroshima Peace Memorial Museum</a>
+            </p>
+          </details>
+
+          <details class="drawer">
+            <summary><span>廣島市區</span><strong>縮景園：把大風景縮進庭園</strong></summary>
+            <p>
+              縮景園是有 400 多年歷史的大名庭園，名字有「縮小景色」的意思。它不是只看花草，而是把山、水、橋、茶室壓縮成一圈可以慢慢走的庭園。
+            </p>
+            <p>
+              有趣點：它離廣島站不遠，很適合放在花火日白天，讓不想跑遠的人有一個安靜選項。
+            </p>
+            <p class="refs">
+              REF:
+              <a href="https://www.japan.travel/en/spot/889" target="_blank" rel="noreferrer">JNTO</a>
+              <a href="https://www.mlit.go.jp/tagengo-db/common/001560951.pdf" target="_blank" rel="noreferrer">Japan Tourism Agency PDF</a>
+            </p>
+          </details>
+
+          <details class="drawer">
+            <summary><span>尾道</span><strong>千光寺與寺廟散步路線</strong></summary>
+            <p>
+              尾道是瀨戶內海旁的坡道小城，寺廟散步路線會穿過住宅小巷、坡道、文學之路與寺院群。Japan Guide 介紹這條路線串起 25 座寺廟，適合慢慢走，不是趕景點。
+            </p>
+            <p>
+              有趣點：尾道保留了很多老街與坡道感，拍照會比廣島市區更有「地方小城」的味道。這天適合不怕走路的人。
+            </p>
+            <p class="refs">
+              REF:
+              <a href="https://www.japan-guide.com/e/e3477.html" target="_blank" rel="noreferrer">Japan Guide</a>
+              <a href="https://dive-hiroshima.com/en/explore/1503/" target="_blank" rel="noreferrer">Dive Hiroshima: Senkoji</a>
+            </p>
+          </details>
+
+          <details class="drawer">
+            <summary><span>吳市</span><strong>大和博物館 / 鐵鯨館</strong></summary>
+            <p>
+              大和博物館介紹吳市作為造船與海事科技城市的歷史，館內有 1/10 比例戰艦「大和」模型。旁邊的 JMSDF 吳資料館又叫鐵鯨館，主角是退役潛艦 Akishio，重點展示潛艦與掃雷活動。
+            </p>
+            <p>
+              有趣點：這是一個很適合夏天的分組行程，因為室內比例高。喜歡船艦、機械、戰史的人會很有感。
+            </p>
+            <p class="refs">
+              REF:
+              <a href="https://yamato-museum.com/en-lp/" target="_blank" rel="noreferrer">Yamato Museum</a>
+              <a href="https://www.mlit.go.jp/tagengo-db/en/R2-01782.html" target="_blank" rel="noreferrer">Japan Tourism Agency: JMSDF Kure Museum</a>
+            </p>
+          </details>
+
+          <details class="drawer">
+            <summary><span>岩國</span><strong>錦帶橋：五連木拱橋</strong></summary>
+            <p>
+              錦帶橋是岩國代表景點，最早建於 1673 年，跨越錦川，以五連木拱造型聞名。岩國市官方資料提到，第一代橋很快被洪水沖毀，後來重建時加強橋墩基礎，才成為更耐久的橋。
+            </p>
+            <p>
+              有趣點：這不是普通平橋，而是為了對抗河水與洪水設計出的漂亮結構。走上去會有明顯起伏，拍照很好看。
+            </p>
+            <p class="refs">
+              REF:
+              <a href="https://kintaikyo.iwakuni-city.net/en/data.html" target="_blank" rel="noreferrer">Iwakuni City</a>
+              <a href="https://www.japan.travel/en/spot/2191/" target="_blank" rel="noreferrer">JNTO</a>
+            </p>
+          </details>
+
+          <details class="drawer">
+            <summary><span>西條</span><strong>酒藏通：廣島的清酒小旅行</strong></summary>
+            <p>
+              西條酒藏通有紅磚煙囪、白牆、紅瓦屋頂，是廣島代表性的酒藏街。廣島官方觀光介紹它被認定為近代化產業遺產之一，也有酒藏試飲、販售與釀造水可體驗。
+            </p>
+            <p>
+              有趣點：日本政府介紹西條、伏見、灘並列為日本重要酒造地之一。這適合最後一天上午慢慢走，不會像尾道那麼耗體力。
+            </p>
+            <p class="refs">
+              REF:
+              <a href="https://dive-hiroshima.com/en/explore/1199/" target="_blank" rel="noreferrer">Dive Hiroshima</a>
+              <a href="https://www.gov-online.go.jp/eng/publicity/book/hlj/html/202304/202304_06_en.html" target="_blank" rel="noreferrer">Highlighting Japan</a>
+            </p>
+          </details>
         </div>
       </section>
 
@@ -206,22 +305,26 @@
         </article>
       </section>
 
-      <section id="notes" class="section notes">
+      <section id="refs" class="section notes">
         <div class="section__head">
-          <p class="eyebrow">Notes</p>
-          <h2>多人旅行規則</h2>
+          <p class="eyebrow">References</p>
+          <h2>主要 REF</h2>
         </div>
         <ul>
-          <li>每天只固定一個主要集合點，其他時間讓大家分組。</li>
-          <li>宮島、花火、最後晚餐是核心共同行程。</li>
-          <li>自由活動日不強制一起吃飯，想集合的人再約。</li>
-          <li>每段交通都多抓 15-30 分鐘，避免一直等人等到崩潰。</li>
+          <li><a href="https://whc.unesco.org/en/list/776" target="_blank" rel="noreferrer">UNESCO: Itsukushima Shinto Shrine</a></li>
+          <li><a href="https://whc.unesco.org/en/list/775" target="_blank" rel="noreferrer">UNESCO: Hiroshima Peace Memorial</a></li>
+          <li><a href="https://www.miyajima.or.jp/english/spot/spot_itsukushima.html" target="_blank" rel="noreferrer">Miyajima Tourist Association: Itsukushima Shrine</a></li>
+          <li><a href="https://www.japan.travel/en/spot/889" target="_blank" rel="noreferrer">JNTO: Shukkeien Garden</a></li>
+          <li><a href="https://www.japan-guide.com/e/e3477.html" target="_blank" rel="noreferrer">Japan Guide: Onomichi Temple Walk</a></li>
+          <li><a href="https://yamato-museum.com/en-lp/" target="_blank" rel="noreferrer">Yamato Museum Official</a></li>
+          <li><a href="https://kintaikyo.iwakuni-city.net/en/data.html" target="_blank" rel="noreferrer">Iwakuni City: Kintaikyo Bridge History</a></li>
+          <li><a href="https://dive-hiroshima.com/en/explore/1199/" target="_blank" rel="noreferrer">Dive Hiroshima: Saijo Sake Brewery Street</a></li>
         </ul>
       </section>
     </main>
 
     <footer>
-      <p>Hiroshima Trip 2026 · Made for friends who do not need to move as one giant unit.</p>
+      <p>Hiroshima Trip 2026 · 行程可以改，REF 先放著比較安心。</p>
     </footer>
 
     <script src="script.js"></script>
