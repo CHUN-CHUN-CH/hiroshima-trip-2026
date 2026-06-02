@@ -584,6 +584,33 @@ footer p {
   box-shadow: none;
 }
 
+.spot-section--quick {
+  border-color: rgba(47, 111, 94, 0.34);
+  background: rgba(47, 111, 94, 0.07);
+}
+
+.spot-section--quick h2,
+.spot-section--meet h2,
+.spot-section--weather h2 {
+  font-size: clamp(24px, 7vw, 34px);
+}
+
+.spot-section--quick p {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.spot-section--meet {
+  border-color: rgba(200, 138, 40, 0.34);
+  background: rgba(200, 138, 40, 0.08);
+}
+
+.spot-section--weather {
+  border-color: rgba(99, 113, 123, 0.24);
+  background: rgba(216, 236, 243, 0.5);
+}
+
 .spot-section p:last-child {
   margin-bottom: 0;
 }

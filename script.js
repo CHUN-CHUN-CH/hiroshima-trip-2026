@@ -255,7 +255,12 @@ if (meta && spotPage) {
   const tagSection = document.createElement("section");
   tagSection.className = "spot-section";
   tagSection.innerHTML = `<h2>景點標籤</h2><div class="tag-strip">${meta.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>`;
-  spotPage.prepend(tagSection);
+  const quickSection = spotPage.querySelector(".spot-section--quick");
+  if (quickSection) {
+    quickSection.after(tagSection);
+  } else {
+    spotPage.prepend(tagSection);
+  }
 
   if (meta.tide) {
     const tideSection = document.createElement("section");
