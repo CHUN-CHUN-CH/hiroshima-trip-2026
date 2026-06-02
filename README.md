@@ -10,6 +10,11 @@
 - 點到點交通摘要
 - Google Map 導航
 - 官方網站與參考來源
+- 餐廳清單
+- 地圖總覽
+- 天氣備案
+- 行前 Checklist
+- 預算估算
 
 公開網站：
 
@@ -25,6 +30,11 @@ https://chun-chun-ch.github.io/hiroshima-trip-2026/
 ├── styles.css
 ├── script.js
 ├── site.webmanifest
+├── food.html
+├── map.html
+├── weather.html
+├── checklist.html
+├── budget.html
 ├── assets/
 │   ├── apple-touch-icon.png
 │   ├── favicon-32.png
@@ -55,6 +65,7 @@ https://chun-chun-ch.github.io/hiroshima-trip-2026/
 - 先看這裡
 - 旅行重點
 - 每日行程抽屜
+- 每日集合資訊卡
 - 景點總覽卡片
 - 交通摘要
 - 自由活動選單
@@ -78,6 +89,8 @@ https://chun-chun-ch.github.io/hiroshima-trip-2026/
 - Google Map 導航
 - 官方網站或參考來源
 - 全站快捷選單
+- 景點標籤
+- 開放時間與休館提醒
 
 目前景點頁包含：
 
@@ -95,6 +108,23 @@ https://chun-chun-ch.github.io/hiroshima-trip-2026/
 - 彌山纜車
 - 廣島城
 - 廣島港 / 宇品 / 花火大會
+
+## Phase 2 新增頁面
+
+- `food.html`：餐廳清單，包含廣島燒、牡蠣、穴子飯、尾道拉麵、咖啡店、居酒屋。
+- `map.html`：景點與交通節點 Google Map 總覽。
+- `weather.html`：雨天、酷暑、很累時的備案。
+- `checklist.html`：行前 Checklist，可在手機上打勾。
+- `budget.html`：每人與團體預算估算。
+
+## Phase 2 新增功能
+
+- 每天行程上方有集合資訊卡。
+- 快捷選單加入餐廳、地圖、天氣備案、Checklist、預算。
+- 嚴島神社與大鳥居頁新增潮汐拍攝提醒。
+- 所有景點頁會顯示標籤、開放時間、休館日與注意事項。
+- 花火頁補充集合時間、到場時間、散場動線、便利商店、廁所與回市區提醒。
+- 景點 Hero 支援依景點套用不同代表圖片。
 
 ## 手機版設計重點
 

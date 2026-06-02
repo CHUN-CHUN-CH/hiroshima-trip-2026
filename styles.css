@@ -306,7 +306,8 @@ main {
 }
 
 .drawer > p,
-.drawer > ol {
+.drawer > ol,
+.meet-card {
   margin: 0 16px 18px;
 }
 
@@ -464,6 +465,8 @@ time {
 
 .quick-menu__panel {
   width: min(260px, calc(100vw - 28px));
+  max-height: min(70vh, 520px);
+  overflow-y: auto;
   display: none;
   grid-template-columns: 1fr;
   gap: 8px;
@@ -513,7 +516,7 @@ footer p {
   align-content: end;
   background:
     linear-gradient(180deg, rgba(15, 24, 29, 0.18), rgba(15, 24, 29, 0.78)),
-    url("https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?auto=format&fit=crop&w=1800&q=80")
+    var(--spot-image, url("https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?auto=format&fit=crop&w=1800&q=80"))
       center / cover;
   color: white;
 }
@@ -614,6 +617,163 @@ footer p {
   margin-top: 12px;
 }
 
+.info-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.info-list div {
+  display: grid;
+  gap: 3px;
+}
+
+.info-list dt {
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.info-list dd {
+  margin: 0;
+}
+
+.meet-card {
+  border: 1px solid rgba(47, 111, 94, 0.22);
+  border-radius: 8px;
+  background: rgba(47, 111, 94, 0.06);
+  padding: 14px;
+}
+
+.meet-card h3 {
+  margin-bottom: 10px;
+  color: var(--green);
+  font-size: 18px;
+}
+
+.meet-card dl,
+.food-card dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.meet-card div,
+.food-card div {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 8px;
+}
+
+.meet-card dt,
+.food-card dt {
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.meet-card dd,
+.food-card dd {
+  margin: 0;
+}
+
+.tag-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.tag-strip span {
+  border: 1px solid rgba(47, 111, 94, 0.22);
+  border-radius: 999px;
+  background: rgba(47, 111, 94, 0.08);
+  color: var(--green);
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.food-grid,
+.map-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.food-card,
+.map-card,
+.budget-row {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  padding: 16px;
+}
+
+.food-card h3,
+.map-card h3 {
+  margin-bottom: 8px;
+}
+
+.food-card > a,
+.map-card > a {
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: var(--green);
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.checklist-page label {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding: 12px 0;
+  font-weight: 800;
+}
+
+.checklist-page input {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--green);
+}
+
+.budget-control {
+  display: grid;
+  gap: 8px;
+  font-weight: 900;
+}
+
+.budget-control input {
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.budget-table {
+  display: grid;
+  gap: 10px;
+}
+
+.budget-row {
+  display: grid;
+  gap: 4px;
+}
+
+.budget-row strong {
+  font-size: 18px;
+}
+
+.budget-row span {
+  color: var(--muted);
+  font-weight: 800;
+}
+
 @media (min-width: 720px) {
   .hero {
     min-height: 76vh;
@@ -690,5 +850,15 @@ footer p {
 
   .action-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .food-grid,
+  .map-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .budget-row {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    align-items: center;
   }
 }
