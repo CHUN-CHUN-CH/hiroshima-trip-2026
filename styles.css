@@ -554,16 +554,22 @@ footer p {
   position: absolute;
   top: 14px;
   left: 14px;
+  width: auto;
+  max-width: max-content;
   min-height: 42px;
-  display: inline-grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 999px;
   background: rgba(29, 35, 40, 0.55);
   color: white;
   padding: 8px 14px;
+  font-size: 14px;
   font-weight: 900;
+  line-height: 1;
   text-decoration: none;
+  white-space: nowrap;
   backdrop-filter: blur(10px);
 }
 
