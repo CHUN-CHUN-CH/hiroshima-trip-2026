@@ -101,6 +101,7 @@ scrollTopButtons.forEach((button) => {
 
 const quickPanelLinks = document.querySelectorAll("[data-menu-panel]");
 const extraQuickLinks = [
+  ["住宿", "index.html#lodging"],
   ["餐廳", "food.html"],
   ["地圖", "map.html"],
   ["天氣備案", "weather.html"],
