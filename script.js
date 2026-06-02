@@ -26,20 +26,75 @@ const choices = {
 };
 
 const buttons = document.querySelectorAll("[data-choice]");
-const title = document.querySelector("#choice-title");
-const text = document.querySelector("#choice-text");
+const choiceTitle = document.querySelector("#choice-title");
+const choiceText = document.querySelector("#choice-text");
 
-buttons.forEach((button, index) => {
-  if (index === 0) {
-    button.classList.add("is-active");
+if (buttons.length && choiceTitle && choiceText) {
+  buttons.forEach((button, index) => {
+    if (index === 0) {
+      button.classList.add("is-active");
+    }
+
+    button.addEventListener("click", () => {
+      const choice = choices[button.dataset.choice];
+
+      if (!choice) {
+        return;
+      }
+
+      choiceTitle.textContent = choice.title;
+      choiceText.textContent = choice.text;
+
+      buttons.forEach((item) => item.classList.remove("is-active"));
+      button.classList.add("is-active");
+    });
+  });
+}
+
+const quickMenu = document.querySelector("[data-menu]");
+const quickToggle = document.querySelector("[data-menu-toggle]");
+const quickPanel = document.querySelector("[data-menu-panel]");
+const scrollTopButtons = document.querySelectorAll("[data-scroll-top]");
+
+function setQuickMenu(open) {
+  if (!quickMenu || !quickToggle) {
+    return;
   }
 
-  button.addEventListener("click", () => {
-    const choice = choices[button.dataset.choice];
-    title.textContent = choice.title;
-    text.textContent = choice.text;
+  quickMenu.classList.toggle("is-open", open);
+  quickToggle.setAttribute("aria-expanded", String(open));
+  quickToggle.textContent = open ? "×" : "☰";
+}
 
-    buttons.forEach((item) => item.classList.remove("is-active"));
-    button.classList.add("is-active");
+if (quickMenu && quickToggle && quickPanel) {
+  quickToggle.addEventListener("click", () => {
+    setQuickMenu(!quickMenu.classList.contains("is-open"));
+  });
+
+  quickPanel.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (target instanceof HTMLAnchorElement) {
+      setQuickMenu(false);
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!quickMenu.contains(event.target)) {
+      setQuickMenu(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setQuickMenu(false);
+    }
+  });
+}
+
+scrollTopButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setQuickMenu(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
