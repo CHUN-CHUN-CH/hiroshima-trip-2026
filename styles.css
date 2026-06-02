@@ -762,8 +762,8 @@ footer p {
   gap: 14px;
 }
 
-.food-section h3 {
-  font-size: 24px;
+.food-section .food-grid {
+  padding: 0 14px 16px;
 }
 
 .view-switch {

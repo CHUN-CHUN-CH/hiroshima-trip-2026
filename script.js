@@ -499,15 +499,22 @@ function renderFoodSections(container, groups, getItems) {
   }
 
   container.innerHTML = "";
-  groups.forEach(([key, label]) => {
+  groups.forEach(([key, label], index) => {
     const items = getItems(key);
     if (!items.length) {
       return;
     }
 
-    const section = document.createElement("section");
-    section.className = "spot-section food-section";
-    section.innerHTML = `<h3>${label}</h3><div class="food-grid"></div>`;
+    const section = document.createElement("details");
+    section.className = "drawer food-section";
+    section.open = index === 0;
+    section.innerHTML = `
+      <summary>
+        <span>${items.length} 個候選</span>
+        <strong>${label}</strong>
+      </summary>
+      <div class="food-grid"></div>
+    `;
     const grid = section.querySelector(".food-grid");
     items.forEach((item) => grid.append(createFoodCard(item)));
     container.append(section);
