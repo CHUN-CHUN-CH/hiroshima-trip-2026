@@ -1179,6 +1179,82 @@ const spotMeta = {
   "hiroshima-port-fireworks.html": { tags: ["必去", "戶外", "拍照", "一日"], hours: "2026/7/25 20:00-21:00 予定", closed: "雨天或荒天可能調整，請出發前確認", note: "建議 17:30 前到場。", image: "../assets/spot-heroes/fireworks.svg" },
 };
 
+const miyajimaTideTripDay = {
+  dateLabel: "2026/7/24（五）",
+  sourceUrl: "https://www.miyajima.or.jp/sio/sio07.php",
+  sourceLabel: "宮島觀光協會 2026 年 7 月潮汐表",
+  dataVersion: "依 2026/6/3 查到的官方 2026 年 7 月表",
+  highTides: [
+    { time: "04:21", height: 260 },
+    { time: "18:55", height: 289 },
+  ],
+  lowTides: [
+    { time: "11:36", height: 116 },
+  ],
+};
+
+function formatTaipeiTime(date = new Date()) {
+  return new Intl.DateTimeFormat("zh-TW", {
+    timeZone: "Asia/Taipei",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(date);
+}
+
+function renderTideEventList(events, emptyText) {
+  if (!events.length) {
+    return `<li>${emptyText}</li>`;
+  }
+
+  return events.map((event) => `<li><strong>${event.time}</strong><span>${event.height} cm</span></li>`).join("");
+}
+
+function buildTideStatus(data = miyajimaTideTripDay) {
+  const floatingTimes = data.highTides.filter((event) => event.height >= 250);
+  const walkableTimes = data.lowTides.filter((event) => event.height < 100);
+  const nearWalkableTimes = data.lowTides.filter((event) => event.height >= 100 && event.height <= 130);
+
+  return {
+    floatingTimes,
+    walkableTimes,
+    nearWalkableTimes,
+    floatingText: floatingTimes.length
+      ? `${floatingTimes.map((event) => `${event.time}（${event.height}cm）`).join("、")} 適合拍海上鳥居 / 海上社殿。`
+      : "沒有明顯超過 250cm 的高潮時段，請以官方即時查詢為準。",
+    walkableText: walkableTimes.length
+      ? `${walkableTimes.map((event) => `${event.time}（${event.height}cm）`).join("、")} 低於 100cm，較適合走近大鳥居。`
+      : nearWalkableTimes.length
+        ? `${nearWalkableTimes.map((event) => `${event.time}（${event.height}cm）`).join("、")} 接近退潮，但未低於官方 100cm 門檻；不建議把「走到鳥居」當保證行程。`
+        : "低潮沒有低於 100cm，不建議把「走到鳥居」當保證行程。",
+  };
+}
+
+async function tryRefreshMiyajimaTide(tideSection) {
+  const status = tideSection.querySelector("[data-tide-fetch-status]");
+  if (!status) {
+    return;
+  }
+
+  try {
+    const response = await fetch(miyajimaTideTripDay.sourceUrl, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    const html = await response.text();
+    const rowMatch = html.replace(/\s+/g, " ").match(/24\s+金\s+若\s+4:21\s+260\s+18:55\s+289\s+11:36\s+116/);
+    status.textContent = rowMatch
+      ? `自動比對官方頁成功：${formatTaipeiTime()}，目前仍符合頁面顯示資料。`
+      : `已於 ${formatTaipeiTime()} 讀取官方頁，但格式可能更新，請點官方查詢確認。`;
+  } catch (error) {
+    status.textContent = `本頁最後檢查時間：${formatTaipeiTime()}。瀏覽器可能擋住跨網域自動讀取，請點官方即時查詢確認最新潮汐。`;
+  }
+}
+
 const currentSpot = location.pathname.split("/").pop();
 const meta = spotMeta[currentSpot];
 const spotPage = document.querySelector(".spot-page");
@@ -1211,8 +1287,34 @@ if (meta && spotPage) {
   if (meta.tide) {
     const tideSection = document.createElement("section");
     tideSection.className = "spot-section";
-    tideSection.innerHTML = "<h2>潮汐拍攝提醒</h2><p>滿潮適合拍海上鳥居，退潮可走近鳥居。未來可在這裡放 2026/7/24 的宮島潮汐資料。</p>";
+    const tideStatus = buildTideStatus();
+    tideSection.innerHTML = `
+      <h2>2026/7/24 潮汐預測</h2>
+      <p>官方說明：潮位 250cm 以上，嚴島神社較像浮在海上；潮位 100cm 以下，較適合走近大鳥居。以下以廣島港潮汐表為基準，厳島港可能會稍早，現場仍以官方即時查詢與天候為準。</p>
+      <div class="tide-grid">
+        <article>
+          <span>滿潮 high tide</span>
+          <ul>${renderTideEventList(miyajimaTideTripDay.highTides, "尚無資料")}</ul>
+        </article>
+        <article>
+          <span>干潮 low tide</span>
+          <ul>${renderTideEventList(miyajimaTideTripDay.lowTides, "尚無資料")}</ul>
+        </article>
+      </div>
+      <div class="tide-callout">
+        <strong>拍照判斷</strong>
+        <p>${tideStatus.floatingText}</p>
+        <p>${tideStatus.walkableText}</p>
+      </div>
+      <p class="tide-status" data-tide-fetch-status>本頁最後檢查時間：${formatTaipeiTime()}。正在嘗試讀取官方頁...</p>
+      <div class="action-row">
+        <a class="action-button" href="${miyajimaTideTripDay.sourceUrl}" target="_blank" rel="noreferrer">官方即時查詢</a>
+        <a class="action-button action-button--ghost" href="${miyajimaTideTripDay.sourceUrl}" target="_blank" rel="noreferrer">${miyajimaTideTripDay.sourceLabel}</a>
+      </div>
+      <p class="source-note">資料版本：${miyajimaTideTripDay.dataVersion}。不要截圖放到出發當天用；請看本頁檢查時間並點官方頁再次確認。</p>
+    `;
     tagSection.after(tideSection);
+    tryRefreshMiyajimaTide(tideSection);
   }
 
   const hoursSection = document.createElement("section");

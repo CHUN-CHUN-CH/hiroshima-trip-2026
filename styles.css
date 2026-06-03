@@ -747,6 +747,67 @@ footer p {
   font-weight: 900;
 }
 
+.tide-grid {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.tide-grid article,
+.tide-callout {
+  border: 1px solid rgba(47, 111, 94, 0.2);
+  border-radius: 8px;
+  background: rgba(47, 111, 94, 0.06);
+  padding: 14px;
+}
+
+.tide-grid span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--green);
+  font-weight: 900;
+}
+
+.tide-grid ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tide-grid li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid rgba(47, 111, 94, 0.14);
+  padding-top: 8px;
+}
+
+.tide-grid li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.tide-callout {
+  border-left: 4px solid var(--gold);
+  background: rgba(193, 143, 54, 0.08);
+}
+
+.tide-callout strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--green);
+  font-size: 18px;
+}
+
+.tide-status,
+.source-note {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
 .food-grid,
 .map-grid {
   display: grid;
