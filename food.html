@@ -10,7 +10,7 @@
     />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-    <link rel="stylesheet" href="styles.css?v=food-drawers1" />
+    <link rel="stylesheet" href="styles.css?v=food-veg1" />
   </head>
   <body>
     <header id="top" class="spot-hero">
@@ -49,6 +49,39 @@
         <div class="food-sections" data-food-categories></div>
       </section>
 
+      <section id="vegetarian" class="section food-vegetarian">
+        <div class="section__head">
+          <p class="eyebrow">Vegetarian</p>
+          <h2>素食專區</h2>
+          <p>以台灣蛋奶素標準整理：不可含肉、魚、海鮮、柴魚高湯、魚介高湯、魚露、豬油。日本店家常把柴魚或魚介高湯當成素食可接受，點餐時一定要再次確認。</p>
+        </div>
+        <section class="spot-section spot-section--quick">
+          <h2>點餐確認句</h2>
+          <p>請確認：不含肉、魚、海鮮、柴魚高湯、魚介高湯、魚露、雞湯、豬油。日文可問：「肉、魚、魚介だし、かつおだし、魚醤は入っていますか？」</p>
+        </section>
+        <section class="spot-section">
+          <h2>素食閱覽模式</h2>
+          <div class="view-switch" role="group" aria-label="素食閱覽模式">
+            <button class="is-active" type="button" data-food-view="veg-area">依地區</button>
+            <button type="button" data-food-view="veg-category">依種類</button>
+          </div>
+        </section>
+        <section class="food-mode" data-food-mode="veg-area">
+          <div class="section__head">
+            <h2>素食依地區</h2>
+            <p>先看你人在市區、宮島、尾道還是西條，再決定要不要移動。</p>
+          </div>
+          <div class="food-sections" data-veg-areas></div>
+        </section>
+        <section class="food-mode is-hidden" data-food-mode="veg-category">
+          <div class="section__head">
+            <h2>素食依種類</h2>
+            <p>純素最安全；蛋奶素、咖啡甜點、便利店保底都要現場確認成分。</p>
+          </div>
+          <div class="food-sections" data-veg-categories></div>
+        </section>
+      </section>
+
       <section class="spot-section notes">
         <h2>餐廳 REF</h2>
         <ul class="ref-list">
@@ -57,6 +90,10 @@
           <li><a href="https://japan-stroll.com/miyajima/english/guide/food-local-cuisine/kurawanka/" target="_blank" rel="noreferrer">Miyajima Stroll: Kurawanka</a></li>
           <li><a href="https://ikuchannel.com/2023/03/13/hiroshima4food/" target="_blank" rel="noreferrer">Iku 老師: 廣島必吃美食</a></li>
           <li><a href="https://jamesdiscover.tw/blog/5058" target="_blank" rel="noreferrer">James Discover: 廣島美食整理</a></li>
+          <li><a href="https://chugokukeiren.jp/tourism/pdf/y2025/vegetarian-guide-2025.pdf" target="_blank" rel="noreferrer">Hiroshima &amp; Western Honshu Vegetarian Guide 2025</a></li>
+          <li><a href="https://fooddiversity.today/zh-hant/article_202444.html" target="_blank" rel="noreferrer">Food Diversity.today: 廣島純素對應餐廳</a></li>
+          <li><a href="https://visitjapan-vegetarian.com/a-guide-to-the-vegan-vegetarian-friendly-spots-on-miyajima/" target="_blank" rel="noreferrer">Visit Japan Vegetarian: Miyajima vegan / vegetarian spots</a></li>
+          <li><a href="https://yamaichibekkan.com/vegetarian.html" target="_blank" rel="noreferrer">山一別館: Vegan / Vegetarian Meal</a></li>
         </ul>
       </section>
     </main>
@@ -74,6 +111,6 @@
         <button type="button" data-scroll-top>回到頂部</button>
       </nav>
     </div>
-    <script src="script.js?v=lodging1"></script>
+    <script src="script.js?v=food-veg1"></script>
   </body>
 </html>

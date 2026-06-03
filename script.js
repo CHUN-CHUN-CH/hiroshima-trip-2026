@@ -262,6 +262,8 @@ const foodItems = [
     budget: "約 ¥1,500-3,000",
     group: "中等，尖峰請多抓時間",
     query: "Kurawanka Miyajima okonomiyaki",
+    vegFriendly: true,
+    vegNote: "有 vegan/vegetarian 資訊可參考；仍請確認醬汁、高湯不含柴魚或魚介。",
   },
   {
     name: "紅葉堂 / 紅葉饅頭周邊店",
@@ -271,6 +273,8 @@ const foodItems = [
     budget: "約 ¥300-1,000",
     group: "適合多人分散買",
     query: "Momijido Miyajima",
+    vegFriendly: true,
+    vegNote: "甜點類較有機會蛋奶素；購買前仍需確認是否含動物性油脂或明膠。",
   },
   {
     name: "牡蠣船 かなわ",
@@ -370,6 +374,8 @@ const foodItems = [
     budget: "約 ¥600-1,500",
     group: "依座位狀況，適合小組",
     query: "Obscura Coffee Roasters Hiroshima",
+    vegFriendly: true,
+    vegNote: "咖啡飲品較友善；甜點若要蛋奶素需確認是否含明膠或魚膠。",
   },
   {
     name: "尾道ラーメン 壱番館",
@@ -397,6 +403,8 @@ const foodItems = [
     budget: "約 ¥800-2,000",
     group: "中等，適合小組休息",
     query: "ONOMICHI U2 Yard Cafe",
+    vegFriendly: true,
+    vegNote: "咖啡、麵包甜點可能可處理；餐點請確認不含肉、魚介高湯。",
   },
   {
     name: "からさわ Karasawa",
@@ -406,6 +414,8 @@ const foodItems = [
     budget: "約 ¥400-1,000",
     group: "適合分散買",
     query: "Karasawa ice cream Onomichi",
+    vegFriendly: true,
+    vegNote: "冰品甜點較有蛋奶素機會；請確認是否含明膠或其他動物性成分。",
   },
   {
     name: "海軍さんの麦酒舘",
@@ -433,6 +443,8 @@ const foodItems = [
     budget: "約 ¥600-1,500",
     group: "中等，適合小組",
     query: "Kugurimon Coffee Saijo Hiroshima",
+    vegFriendly: true,
+    vegNote: "咖啡與部分輕食較友善；餐點請確認是否使用魚介高湯。",
   },
   {
     name: "賀茂鶴酒造",
@@ -472,16 +484,151 @@ const foodItems = [
   },
 ];
 
-function createFoodCard(item) {
-  const areaLabel = foodAreas.find(([key]) => key === item.area)?.[1] || item.area;
+const vegAreas = [
+  ["hondori", "紙屋町 / 本通 / 和平公園"],
+  ["hatchobori", "八丁堀 / 流川 / 住宿附近"],
+  ["hiroshima-station", "廣島站"],
+  ["miyajima", "宮島 / 宮島口"],
+  ["onomichi", "尾道"],
+  ["saijo", "西條"],
+];
+
+const vegCategories = [
+  ["vegan", "純素"],
+  ["ovo-lacto", "蛋奶素可確認"],
+  ["japanese", "日式 / 廣島特色"],
+  ["cafe", "咖啡 / 甜點"],
+  ["backup", "便利店 / 保底"],
+];
+
+const vegItems = [
+  {
+    name: "JoGeSaYu",
+    area: "hondori",
+    categories: ["vegan", "japanese"],
+    reason: "廣島市中心純素餐廳，Food Diversity 介紹為全菜單純素，適合需要最安心的一餐。",
+    budget: "約 ¥2,000-5,000",
+    group: "適合，建議先訂位",
+    query: "JoGeSaYu Hiroshima vegan",
+    vegCheck: "純素取向，但仍請出發前確認營業、預約與菜單。",
+  },
+  {
+    name: "Keiai Vegan & Vegetarian Chinese Food",
+    area: "hatchobori",
+    categories: ["vegan", "ovo-lacto"],
+    reason: "廣島市區素食中華料理候選，對台灣素食者比較好溝通。",
+    budget: "約 ¥1,500-3,500",
+    group: "中等，建議先確認營業",
+    query: "Keiai Vegan Vegetarian Chinese Food Hiroshima",
+    vegCheck: "點餐仍要確認不含魚介、柴魚、雞湯、豬油。",
+  },
+  {
+    name: "菜食健美 Saishoku Kenbi",
+    area: "hondori",
+    categories: ["vegan", "ovo-lacto", "japanese"],
+    reason: "Get Hiroshima 收錄的 vegetarian diner，適合想找市區素食正餐。",
+    budget: "約 ¥1,000-2,500",
+    group: "中等，建議先確認是否仍營業與座位",
+    query: "Saishoku Kenbi Hiroshima vegetarian",
+    vegCheck: "請以台灣蛋奶素標準確認高湯、醬汁、調味料。",
+  },
+  {
+    name: "山一別館 Vegan / Vegetarian Meal",
+    area: "miyajima",
+    categories: ["vegan", "japanese"],
+    reason: "宮島官方旅館餐食有 vegetarian/vegan 說明，適合宮島日需要安心餐的人。",
+    budget: "依套餐與預約",
+    group: "適合小組，務必事前預約",
+    query: "Yamaichi Bekkan Miyajima vegetarian vegan",
+    vegCheck: "旅館餐建議預約時明確寫 no fish, no bonito dashi, no seafood stock。",
+  },
+  {
+    name: "Akushu Restaurant",
+    area: "miyajima",
+    categories: ["vegan", "japanese"],
+    reason: "宮島 vegetarian guide 提到有 vegan options，靠近表參道動線。",
+    budget: "約 ¥2,000-5,000",
+    group: "中等，建議先確認菜單",
+    query: "Akushu Restaurant Miyajima vegan",
+    vegCheck: "請確認 vegan option 當日供應，且不含魚介高湯。",
+  },
+  {
+    name: "Miyajima Cuillere Vegan Menu",
+    area: "miyajima",
+    categories: ["vegan", "japanese"],
+    reason: "宮島 Bistro 有 vegan menu 頁面，適合想在宮島吃比較正式的一餐。",
+    budget: "約 ¥2,000-5,000",
+    group: "中等，建議先訂位",
+    query: "Miyajima Cuillere vegan menu",
+    vegCheck: "以 vegan menu 為準，仍請確認當日供應與訂位。",
+  },
+  {
+    name: "Kurawanka Vegan Okonomiyaki",
+    area: "miyajima",
+    categories: ["vegan", "japanese"],
+    reason: "宮島 vegetarian guide 收錄的廣島燒候選，想讓素食者也吃到地方感可看。",
+    budget: "約 ¥1,500-3,000",
+    group: "中等，尖峰需排隊",
+    query: "Kurawanka Miyajima vegan okonomiyaki",
+    vegCheck: "務必指定 vegan/vegetarian，不要一般廣島燒醬汁與柴魚高湯。",
+  },
+  {
+    name: "Organic Matcha Miyajima",
+    area: "miyajima",
+    categories: ["cafe", "ovo-lacto"],
+    reason: "宮島口抹茶咖啡甜點候選，適合素食者補甜點或飲料。",
+    budget: "約 ¥500-1,500",
+    group: "適合分散買",
+    query: "Organic Matcha Miyajima",
+    vegCheck: "飲品較安全；甜點請確認是否含明膠、魚膠或動物性油脂。",
+  },
+  {
+    name: "ONOMICHI U2 Cafe / Bakery",
+    area: "onomichi",
+    categories: ["cafe", "ovo-lacto"],
+    reason: "尾道自由日時的咖啡與輕食保底點，素食者可先從飲品、麵包甜點確認。",
+    budget: "約 ¥800-2,000",
+    group: "中等，適合小組",
+    query: "ONOMICHI U2 vegan vegetarian cafe",
+    vegCheck: "不是純素店，請確認是否含動物性油脂、明膠、肉魚高湯。",
+  },
+  {
+    name: "くぐり門珈琲店",
+    area: "saijo",
+    categories: ["cafe", "ovo-lacto"],
+    reason: "西條酒藏街咖啡休息點，若正餐難找，先用咖啡與甜點當緩衝。",
+    budget: "約 ¥600-1,500",
+    group: "中等，適合小組",
+    query: "Kugurimon Coffee Saijo vegetarian",
+    vegCheck: "不是純素店；餐點請確認高湯、醬汁、甜點成分。",
+  },
+  {
+    name: "便利商店素食保底",
+    area: "hiroshima-station",
+    categories: ["backup"],
+    reason: "車站與住宿附近都可用，適合買白飯、鹽味飯糰、沙拉、堅果、水果。",
+    budget: "約 ¥300-1,200",
+    group: "適合多人分散買",
+    query: "convenience store Hiroshima Station",
+    vegCheck: "避開看起來素但含魚介/柴魚的飯糰、湯品、醬料；成分看不懂就不要賭。",
+  },
+];
+
+function createFoodCard(item, areaGroups = foodAreas, categoryGroups = foodCategories) {
+  const areaLabel = areaGroups.find(([key]) => key === item.area)?.[1] || item.area;
   const categoryLabels = item.categories
-    .map((category) => foodCategories.find(([key]) => key === category)?.[1] || category)
+    .map((category) => categoryGroups.find(([key]) => key === category)?.[1] || category)
     .join(" / ");
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.query)}`;
+  const badges = [
+    item.vegFriendly ? '<span class="food-badge food-badge--veg">素食友善</span>' : "",
+    item.vegCheck ? '<span class="food-badge food-badge--veg">台灣蛋奶素檢查</span>' : "",
+  ].join("");
+  const vegNote = item.vegNote || item.vegCheck;
   const article = document.createElement("article");
   article.className = "food-card";
   article.innerHTML = `
-    <span class="food-card__area">${areaLabel}</span>
+    <div class="food-card__badges"><span class="food-card__area">${areaLabel}</span>${badges}</div>
     <h3>${item.name}</h3>
     <p>${item.reason}</p>
     <dl>
@@ -489,12 +636,13 @@ function createFoodCard(item) {
       <div><dt>預算</dt><dd>${item.budget}</dd></div>
       <div><dt>多人</dt><dd>${item.group}</dd></div>
     </dl>
+    ${vegNote ? `<p class="veg-note">素食提醒：${vegNote}</p>` : ""}
     <a href="${mapUrl}" target="_blank" rel="noreferrer">Google Map</a>
   `;
   return article;
 }
 
-function renderFoodSections(container, groups, getItems) {
+function renderFoodSections(container, groups, getItems, areaGroups = foodAreas, categoryGroups = foodCategories) {
   if (!container) {
     return;
   }
@@ -517,25 +665,35 @@ function renderFoodSections(container, groups, getItems) {
       <div class="food-grid"></div>
     `;
     const grid = section.querySelector(".food-grid");
-    items.forEach((item) => grid.append(createFoodCard(item)));
+    items.forEach((item) => grid.append(createFoodCard(item, areaGroups, categoryGroups)));
     container.append(section);
   });
 }
 
 const foodAreaContainer = document.querySelector("[data-food-areas]");
 const foodCategoryContainer = document.querySelector("[data-food-categories]");
+const vegAreaContainer = document.querySelector("[data-veg-areas]");
+const vegCategoryContainer = document.querySelector("[data-veg-categories]");
 const foodModeButtons = document.querySelectorAll("[data-food-view]");
 const foodModes = document.querySelectorAll("[data-food-mode]");
 
-if (foodAreaContainer || foodCategoryContainer) {
+if (foodAreaContainer || foodCategoryContainer || vegAreaContainer || vegCategoryContainer) {
   renderFoodSections(foodAreaContainer, foodAreas, (area) => foodItems.filter((item) => item.area === area));
   renderFoodSections(foodCategoryContainer, foodCategories, (category) => foodItems.filter((item) => item.categories.includes(category)));
+  renderFoodSections(vegAreaContainer, vegAreas, (area) => vegItems.filter((item) => item.area === area), vegAreas, vegCategories);
+  renderFoodSections(vegCategoryContainer, vegCategories, (category) => vegItems.filter((item) => item.categories.includes(category)), vegAreas, vegCategories);
 
   foodModeButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const view = button.dataset.foodView;
-      foodModeButtons.forEach((item) => item.classList.toggle("is-active", item === button));
-      foodModes.forEach((mode) => {
+      const switchGroup = button.closest(".view-switch");
+      const isVegView = view.startsWith("veg-");
+      const relatedModes = [...foodModes].filter((mode) => mode.dataset.foodMode.startsWith("veg-") === isVegView);
+
+      switchGroup.querySelectorAll("[data-food-view]").forEach((item) => {
+        item.classList.toggle("is-active", item === button);
+      });
+      relatedModes.forEach((mode) => {
         mode.classList.toggle("is-hidden", mode.dataset.foodMode !== view);
       });
     });
