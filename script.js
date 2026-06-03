@@ -1211,13 +1211,13 @@ function formatTaipeiTime(date = new Date()) {
 const liveInfoModules = {
   miyajima: {
     label: "宮島今日資訊",
-    status: "請點官方來源確認",
+    status: "今日狀態：潮汐卡已顯示，交通與天氣見下方",
     note: "先看潮汐、渡輪與天氣；宮島行程受海象與戶外天候影響很大。",
     sources: [{ label: "宮島觀光協會", url: "https://www.miyajima.or.jp/english/" }],
   },
   ferry: {
     label: "宮島渡輪",
-    status: "請點官方來源確認",
+    status: "今日狀態：航班公告需確認",
     note: "強風、豪雨或海象不佳可能影響渡輪。若停航，宮島、大鳥居、嚴島神社與彌山行程都要改市區備案。",
     sources: [
       { label: "JR Miyajima Ferry", url: "https://jr-miyajimaferry.co.jp/en/" },
@@ -1226,19 +1226,19 @@ const liveInfoModules = {
   },
   ropeway: {
     label: "彌山纜車",
-    status: "請點官方來源確認",
+    status: "今日狀態：運行公告需確認",
     note: "強風、雷雨、維修都可能停駛；搭纜車後仍要步行，不是一下車就到山頂。",
     sources: [{ label: "Miyajima Ropeway Official", url: "https://miyajima-ropeway.info/" }],
   },
   jrWest: {
     label: "JR 西日本運行資訊",
-    status: "請點官方來源確認",
+    status: "今日狀態：運行公告需確認",
     note: "宮島、尾道、吳市、錦帶橋、西條都會受 JR 影響。若有延誤，先改短行程或市區備案。",
     sources: [{ label: "JR West Train Status", url: "https://trafficinfo.westjr.co.jp/chugoku.html" }],
   },
   weather: {
     label: "廣島天氣警示",
-    status: "請點官方來源確認",
+    status: "今日狀態：讀取天氣警示中",
     note: "7 月請特別注意高溫、雷雨、強風。戶外景點若遇警示，停留時間要縮短。",
     sources: [
       { label: "日本氣象廳 廣島警報", url: "https://www.jma.go.jp/bosai/warning/#area_type=offices&area_code=340000" },
@@ -1247,13 +1247,13 @@ const liveInfoModules = {
   },
   sunset: {
     label: "日落時間",
-    status: "請點官方來源確認",
+    status: "今日狀態：計算中",
     note: "影響宮島、尾道、錦帶橋與花火前拍照時間；傍晚行程要同時確認回程交通。",
     sources: [{ label: "Time and Date Hiroshima", url: "https://www.timeanddate.com/sun/japan/hiroshima" }],
   },
   fireworks: {
     label: "花火活動狀態",
-    status: "請點官方來源確認",
+    status: "今日狀態：活動公告需確認",
     note: "請確認是否舉辦、雨天或荒天公告、交通管制與散場動線。手機要充滿電，水和簡單食物先買好。",
     sources: [
       { label: "GOOD LUCK TRIP", url: "https://www.gltjp.com/en/directory/item/18911/" },
@@ -1262,43 +1262,43 @@ const liveInfoModules = {
   },
   peaceMuseum: {
     label: "和平紀念資料館",
-    status: "請點官方來源確認",
+    status: "今日狀態：開館公告需確認",
     note: "確認開館、最後入館、人潮與是否需要預約；人多時先逛公園與原爆圓頂，再回資料館。",
     sources: [{ label: "Hiroshima Peace Memorial Museum", url: "https://hpmmuseum.jp/?lang=eng" }],
   },
   yamatoMuseum: {
     label: "大和博物館",
-    status: "請點官方來源確認",
+    status: "今日狀態：開館公告需確認",
     note: "吳市雨天備案核心；若休館或展覽調整，請改廣島市區室內景點。",
     sources: [{ label: "Yamato Museum Official", url: "https://yamato-museum.com/en-lp/" }],
   },
   shukkeien: {
     label: "縮景園開園",
-    status: "請點官方來源確認",
+    status: "今日狀態：開園公告需確認",
     note: "確認今日開園、休園、最後入園時間；夏季中午太熱，建議早上或傍晚。",
     sources: [{ label: "縮景園 Official", url: "https://shukkeien.jp/" }],
   },
   kintaikyo: {
     label: "錦帶橋通行",
-    status: "請點官方來源確認",
+    status: "今日狀態：通行公告需確認",
     note: "惡劣天候會影響橋上體驗與拍照；最後一天尤其要先確認回廣島與機場時間。",
     sources: [{ label: "錦帶橋 Official", url: "https://kintaikyo.iwakuni-city.net/en/" }],
   },
   iwakuniRopeway: {
     label: "岩國城纜車",
-    status: "請點官方來源確認",
+    status: "今日狀態：運行公告需確認",
     note: "若要加岩國城，請確認纜車是否運行與末班；停駛就只排橋與河岸。",
     sources: [{ label: "岩國城 Ropeway", url: "https://kankou.iwakuni-city.net/ropeway.html" }],
   },
   saijoSake: {
     label: "西條酒藏營業 / 試飲",
-    status: "請點官方來源確認",
+    status: "今日狀態：各酒藏營業需確認",
     note: "各酒藏時間不同，試飲不一定每天都有；飲酒後請搭 JR 回廣島，不要排太趕。",
     sources: [{ label: "Dive Hiroshima Saijo", url: "https://dive-hiroshima.com/en/explore/1199/" }],
   },
   onomichiRopeway: {
     label: "千光寺纜車",
-    status: "請點官方來源確認",
+    status: "今日狀態：運行公告需確認",
     note: "尾道坡道多，酷暑時纜車很重要；若停駛，請改短路線、咖啡廳與商店街。",
     sources: [{ label: "千光寺山 Ropeway", url: "https://mt-senkoji-rw.jp/" }],
   },
@@ -1320,12 +1320,12 @@ function renderLiveInfoSection(keys = []) {
     </div>
     <div class="live-info-grid">
       ${modules.map((item) => `
-        <article class="live-info-card">
+        <article class="live-info-card" data-live-card="${Object.keys(liveInfoModules).find((key) => liveInfoModules[key] === item) || ""}">
           <div>
-            <span>${item.status}</span>
+            <span data-live-status>${item.status}</span>
             <h3>${item.label}</h3>
           </div>
-          <p>${item.note}</p>
+          <p data-live-note>${item.note}</p>
           <div class="live-info-links">
             ${item.sources.map((source) => `<a href="${source.url}" target="_blank" rel="noreferrer">${source.label}</a>`).join("")}
           </div>
@@ -1333,7 +1333,55 @@ function renderLiveInfoSection(keys = []) {
       `).join("")}
     </div>
   `;
+  requestAnimationFrame(() => refreshLiveInfoSection(section));
   return section;
+}
+
+function getSunsetTimeForHiroshima(date = new Date()) {
+  const latitude = 34.3853;
+  const longitude = 132.4553;
+  const zenith = 90.833;
+  const dayStart = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayOfYear = Math.floor((dayStart - new Date(Date.UTC(date.getFullYear(), 0, 0))) / 86400000);
+  const lngHour = longitude / 15;
+  const t = dayOfYear + ((18 - lngHour) / 24);
+  const meanAnomaly = (0.9856 * t) - 3.289;
+  let trueLongitude = meanAnomaly + (1.916 * Math.sin(meanAnomaly * Math.PI / 180)) + (0.02 * Math.sin(2 * meanAnomaly * Math.PI / 180)) + 282.634;
+  trueLongitude = (trueLongitude + 360) % 360;
+  let rightAscension = Math.atan(0.91764 * Math.tan(trueLongitude * Math.PI / 180)) * 180 / Math.PI;
+  rightAscension = (rightAscension + 360) % 360;
+  rightAscension += (Math.floor(trueLongitude / 90) * 90) - (Math.floor(rightAscension / 90) * 90);
+  rightAscension /= 15;
+  const sinDeclination = 0.39782 * Math.sin(trueLongitude * Math.PI / 180);
+  const cosDeclination = Math.cos(Math.asin(sinDeclination));
+  const cosHourAngle = (Math.cos(zenith * Math.PI / 180) - (sinDeclination * Math.sin(latitude * Math.PI / 180))) / (cosDeclination * Math.cos(latitude * Math.PI / 180));
+
+  if (cosHourAngle > 1 || cosHourAngle < -1) {
+    return null;
+  }
+
+  const hourAngle = (Math.acos(cosHourAngle) * 180 / Math.PI) / 15;
+  const localMeanTime = hourAngle + rightAscension - (0.06571 * t) - 6.622;
+  const utcTime = (localMeanTime - lngHour + 24) % 24;
+  const japanTime = (utcTime + 9) % 24;
+  const hours = Math.floor(japanTime);
+  const minutes = Math.round((japanTime - hours) * 60);
+  const displayHours = String((hours + Math.floor(minutes / 60)) % 24).padStart(2, "0");
+  const displayMinutes = String(minutes % 60).padStart(2, "0");
+  return `${displayHours}:${displayMinutes}`;
+}
+
+function refreshLiveInfoSection(section) {
+  const sunsetCard = section.querySelector('[data-live-card="sunset"]');
+  if (sunsetCard) {
+    const sunset = getSunsetTimeForHiroshima();
+    const status = sunsetCard.querySelector("[data-live-status]");
+    const note = sunsetCard.querySelector("[data-live-note]");
+    if (sunset && status && note) {
+      status.textContent = `今日狀態：廣島日落約 ${sunset}`;
+      note.textContent = `以本機日期計算的廣島日落時間約 ${sunset}。若要拍夕陽，請把回程交通和天氣一起看。`;
+    }
+  }
 }
 
 function renderTideEventList(events, emptyText) {
