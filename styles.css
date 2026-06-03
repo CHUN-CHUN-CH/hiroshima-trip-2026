@@ -753,7 +753,8 @@ footer p {
   gap: 12px;
 }
 
-.food-mode.is-hidden {
+.food-mode.is-hidden,
+.food-tab-panel.is-hidden {
   display: none;
 }
 
@@ -770,6 +771,10 @@ footer p {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
+}
+
+.view-switch--wide {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .view-switch button {

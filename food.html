@@ -10,7 +10,7 @@
     />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-    <link rel="stylesheet" href="styles.css?v=food-refsplit1" />
+    <link rel="stylesheet" href="styles.css?v=food-tabs1" />
   </head>
   <body>
     <header id="top" class="spot-hero">
@@ -26,30 +26,63 @@
       </section>
 
       <section class="spot-section">
-        <h2>閱覽模式</h2>
-        <div class="view-switch" role="group" aria-label="餐廳閱覽模式">
-          <button class="is-active" type="button" data-food-view="area">依地區</button>
-          <button type="button" data-food-view="category">依食物種類</button>
+        <h2>餐廳分頁</h2>
+        <div class="view-switch view-switch--wide" role="group" aria-label="餐廳分頁">
+          <button class="is-active" type="button" data-food-tab="meat">大魚大肉</button>
+          <button type="button" data-food-tab="cafe">咖啡廳</button>
+          <button type="button" data-food-tab="veg">素食</button>
         </div>
       </section>
 
-      <section class="food-mode" data-food-mode="area">
-        <div class="section__head">
-          <h2>依地區</h2>
-          <p>適合現場找附近能吃什麼，尤其多人分組時比較實用。</p>
-        </div>
-        <div class="food-sections" data-food-areas></div>
+      <section class="food-tab-panel" data-food-panel="meat">
+        <section class="spot-section">
+          <h2>大魚大肉閱覽模式</h2>
+          <div class="view-switch" role="group" aria-label="大魚大肉閱覽模式">
+            <button class="is-active" type="button" data-food-view="meat-area">依地區</button>
+            <button type="button" data-food-view="meat-category">依種類</button>
+          </div>
+        </section>
+        <section class="food-mode" data-food-mode="meat-area">
+          <div class="section__head">
+            <h2>大魚大肉依地區</h2>
+            <p>燒肉、海鮮、廣島燒、牡蠣、拉麵、居酒屋與宵夜，先看你人在附近哪一區。</p>
+          </div>
+          <div class="food-sections" data-meat-areas></div>
+        </section>
+        <section class="food-mode is-hidden" data-food-mode="meat-category">
+          <div class="section__head">
+            <h2>大魚大肉依種類</h2>
+            <p>想吃燒肉、海鮮、牡蠣、穴子飯、拉麵或宵夜時用這個。</p>
+          </div>
+          <div class="food-sections" data-meat-categories></div>
+        </section>
       </section>
 
-      <section class="food-mode is-hidden" data-food-mode="category">
-        <div class="section__head">
-          <h2>依食物種類</h2>
-          <p>保留原本的找法，想吃特定品項時用這個。</p>
-        </div>
-        <div class="food-sections" data-food-categories></div>
+      <section class="food-tab-panel is-hidden" data-food-panel="cafe">
+        <section class="spot-section">
+          <h2>咖啡廳閱覽模式</h2>
+          <div class="view-switch" role="group" aria-label="咖啡廳閱覽模式">
+            <button class="is-active" type="button" data-food-view="cafe-area">依地區</button>
+            <button type="button" data-food-view="cafe-category">依種類</button>
+          </div>
+        </section>
+        <section class="food-mode" data-food-mode="cafe-area">
+          <div class="section__head">
+            <h2>咖啡廳依地區</h2>
+            <p>休息、避暑、等人、甜點補給，先看你們人在市區、宮島、尾道還是其他區域。</p>
+          </div>
+          <div class="food-sections" data-cafe-areas></div>
+        </section>
+        <section class="food-mode is-hidden" data-food-mode="cafe-category">
+          <div class="section__head">
+            <h2>咖啡廳依種類</h2>
+            <p>咖啡、甜點、休息備案與晚間飲料點會集中在這裡。</p>
+          </div>
+          <div class="food-sections" data-cafe-categories></div>
+        </section>
       </section>
 
-      <section id="vegetarian" class="section food-vegetarian">
+      <section id="vegetarian" class="section food-vegetarian food-tab-panel is-hidden" data-food-panel="veg">
         <div class="section__head">
           <p class="eyebrow">Vegetarian</p>
           <h2>素食專區</h2>
@@ -138,6 +171,6 @@
         <button type="button" data-scroll-top>回到頂部</button>
       </nav>
     </div>
-    <script src="script.js?v=food-refsplit1"></script>
+    <script src="script.js?v=food-tabs1"></script>
   </body>
 </html>

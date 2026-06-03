@@ -1051,25 +1051,47 @@ function renderFoodSections(container, groups, getItems, areaGroups = foodAreas,
   });
 }
 
-const foodAreaContainer = document.querySelector("[data-food-areas]");
-const foodCategoryContainer = document.querySelector("[data-food-categories]");
+const meatAreaContainer = document.querySelector("[data-meat-areas]");
+const meatCategoryContainer = document.querySelector("[data-meat-categories]");
+const cafeAreaContainer = document.querySelector("[data-cafe-areas]");
+const cafeCategoryContainer = document.querySelector("[data-cafe-categories]");
 const vegAreaContainer = document.querySelector("[data-veg-areas]");
 const vegCategoryContainer = document.querySelector("[data-veg-categories]");
+const foodTabButtons = document.querySelectorAll("[data-food-tab]");
+const foodPanels = document.querySelectorAll("[data-food-panel]");
 const foodModeButtons = document.querySelectorAll("[data-food-view]");
 const foodModes = document.querySelectorAll("[data-food-mode]");
 
-if (foodAreaContainer || foodCategoryContainer || vegAreaContainer || vegCategoryContainer) {
-  renderFoodSections(foodAreaContainer, foodAreas, (area) => foodItems.filter((item) => item.area === area));
-  renderFoodSections(foodCategoryContainer, foodCategories, (category) => foodItems.filter((item) => item.categories.includes(category)));
+if (meatAreaContainer || meatCategoryContainer || cafeAreaContainer || cafeCategoryContainer || vegAreaContainer || vegCategoryContainer) {
+  const cafeItems = foodItems.filter((item) => item.categories.includes("cafe"));
+  const meatItems = foodItems.filter((item) => !item.categories.includes("cafe"));
+
+  renderFoodSections(meatAreaContainer, foodAreas, (area) => meatItems.filter((item) => item.area === area));
+  renderFoodSections(meatCategoryContainer, foodCategories, (category) => meatItems.filter((item) => item.categories.includes(category)));
+  renderFoodSections(cafeAreaContainer, foodAreas, (area) => cafeItems.filter((item) => item.area === area));
+  renderFoodSections(cafeCategoryContainer, foodCategories, (category) => cafeItems.filter((item) => item.categories.includes(category)));
   renderFoodSections(vegAreaContainer, vegAreas, (area) => vegItems.filter((item) => item.area === area), vegAreas, vegCategories);
   renderFoodSections(vegCategoryContainer, vegCategories, (category) => vegItems.filter((item) => item.categories.includes(category)), vegAreas, vegCategories);
+
+  foodTabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const tab = button.dataset.foodTab;
+
+      foodTabButtons.forEach((item) => {
+        item.classList.toggle("is-active", item === button);
+      });
+      foodPanels.forEach((panel) => {
+        panel.classList.toggle("is-hidden", panel.dataset.foodPanel !== tab);
+      });
+    });
+  });
 
   foodModeButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const view = button.dataset.foodView;
       const switchGroup = button.closest(".view-switch");
-      const isVegView = view.startsWith("veg-");
-      const relatedModes = [...foodModes].filter((mode) => mode.dataset.foodMode.startsWith("veg-") === isVegView);
+      const viewGroup = view.split("-")[0];
+      const relatedModes = [...foodModes].filter((mode) => mode.dataset.foodMode.startsWith(`${viewGroup}-`));
 
       switchGroup.querySelectorAll("[data-food-view]").forEach((item) => {
         item.classList.toggle("is-active", item === button);
