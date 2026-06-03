@@ -994,6 +994,152 @@ footer p {
   text-decoration: none;
 }
 
+.map-shell {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+
+.map-filter-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 2px 8px;
+  scrollbar-width: thin;
+}
+
+.map-filter-bar label {
+  min-height: 42px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.map-filter-bar input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+
+.trip-map {
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--sky);
+}
+
+.map-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.trip-map-marker {
+  background: transparent;
+  border: 0;
+}
+
+.trip-map-marker span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 8px 18px rgba(29, 35, 40, 0.22);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.trip-map-popup {
+  min-width: 220px;
+  max-width: 280px;
+}
+
+.trip-map-popup h3 {
+  margin-bottom: 8px;
+  color: var(--green);
+  font-size: 18px;
+}
+
+.trip-map-popup p {
+  margin: 0 0 7px;
+  color: #3f4b53;
+  line-height: 1.45;
+}
+
+.trip-map-popup__actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(98px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.trip-map-popup__actions a,
+.trip-map-popup__actions span {
+  min-height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--green);
+  color: white;
+  padding: 8px 10px;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+}
+
+.trip-map-popup__actions a + a {
+  border: 1px solid var(--green);
+  background: white;
+  color: var(--green);
+}
+
+.map-missing {
+  box-shadow: none;
+}
+
+.map-missing__list {
+  display: grid;
+  gap: 8px;
+  padding: 0 14px 14px;
+}
+
+.map-missing__list article {
+  display: grid;
+  gap: 4px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.map-missing__list span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.map-missing__list a {
+  color: var(--green);
+  font-weight: 900;
+  text-underline-offset: 3px;
+}
+
 .food-card__actions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1152,8 +1298,18 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .trip-map {
+    height: 500px;
+  }
+
   .budget-row {
     grid-template-columns: 1.2fr 1fr 1fr;
     align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .trip-map {
+    height: 600px;
   }
 }

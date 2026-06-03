@@ -113,6 +113,7 @@ https://chun-chun-ch.github.io/hiroshima-trip-2026/
 
 - `food.html`：餐廳清單，包含廣島燒、牡蠣、穴子飯、尾道拉麵、咖啡店、居酒屋。
 - `map.html`：景點與交通節點 Google Map 總覽。
+- 首頁「旅遊動態地圖」：使用 Leaflet.js 與 OpenStreetMap，資料放在 `data/map-spots.json`。
 - `weather.html`：雨天、酷暑、很累時的備案。
 - `checklist.html`：行前 Checklist，可在手機上打勾。
 - `budget.html`：每人與團體預算估算。
@@ -121,6 +122,7 @@ https://chun-chun-ch.github.io/hiroshima-trip-2026/
 
 - 每天行程上方有集合資訊卡。
 - 快捷選單加入餐廳、地圖、天氣備案、Checklist、預算。
+- 快捷選單加入首頁動態地圖入口。
 - 嚴島神社與大鳥居頁新增潮汐拍攝提醒。
 - 所有景點頁會顯示標籤、開放時間、休館日與注意事項。
 - 花火頁補充集合時間、到場時間、散場動線、便利商店、廁所與回市區提醒。

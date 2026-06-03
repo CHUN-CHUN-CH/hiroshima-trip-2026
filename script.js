@@ -102,6 +102,7 @@ scrollTopButtons.forEach((button) => {
 const quickPanelLinks = document.querySelectorAll("[data-menu-panel]");
 const extraQuickLinks = [
   ["住宿", "index.html#lodging"],
+  ["動態地圖", "index.html#dynamic-map"],
   ["餐廳", "food.html"],
   ["地圖", "map.html"],
   ["天氣備案", "weather.html"],
@@ -156,6 +157,157 @@ if (mapList) {
     mapList.append(card);
   });
 }
+
+const tripMapElement = document.querySelector("#trip-map");
+const tripMapStatus = document.querySelector("[data-map-status]");
+const tripMapMissingList = document.querySelector("[data-map-missing-list]");
+const tripMapMissingCount = document.querySelector("[data-map-missing-count]");
+const tripMapFilters = document.querySelectorAll("[data-map-filter]");
+
+const tripMapCategoryMeta = {
+  sightseeing: { label: "景點", color: "#2f6fbd", icon: "景" },
+  okonomiyaki: { label: "素食餐廳｜廣島燒", color: "#d87923", icon: "燒" },
+  noodles: { label: "素食餐廳｜拉麵 / 麵類", color: "#c74338", icon: "麵" },
+  curry: { label: "素食餐廳｜咖哩 / 印度料理", color: "#d7a21d", icon: "咖" },
+  cafe: { label: "素食餐廳｜咖啡甜點", color: "#2f8f64", icon: "咖" },
+  japanese: { label: "素食餐廳｜精進料理 / 日本料理", color: "#7b58b8", icon: "和" },
+  transport: { label: "交通節點", color: "#6b737b", icon: "站" },
+  meeting: { label: "集合地點", color: "#1d2328", icon: "合" },
+  backup: { label: "備案地點", color: "#4f7895", icon: "備" },
+};
+
+function getTripMapDataUrl() {
+  const prefix = location.pathname.includes("/spots/") ? "../" : "";
+  return `${prefix}data/map-spots.json?v=dynamic-map1`;
+}
+
+function getTripMapFilters(item) {
+  const filters = [item.type, item.category].filter(Boolean);
+  if (item.type === "restaurant") {
+    filters.push("restaurant");
+  }
+  if (item.type === "spot") {
+    filters.push("spot");
+  }
+  return [...new Set(filters)];
+}
+
+function createTripMapIcon(item) {
+  const meta = tripMapCategoryMeta[item.category] || tripMapCategoryMeta[item.type] || tripMapCategoryMeta.sightseeing;
+  return L.divIcon({
+    className: "trip-map-marker",
+    html: `<span style="background:${meta.color}">${meta.icon}</span>`,
+    iconSize: [34, 34],
+    iconAnchor: [17, 34],
+    popupAnchor: [0, -30],
+  });
+}
+
+function createTripMapPopup(item) {
+  const meta = tripMapCategoryMeta[item.category] || tripMapCategoryMeta[item.type] || tripMapCategoryMeta.sightseeing;
+  const vegetarian = item.vegetarianType ? `<p><strong>素食類型：</strong>${item.vegetarianType}</p>` : "";
+  const pageLink = item.pageUrl ? `<a href="${item.pageUrl}">詳情頁</a>` : "";
+  const mapLink = item.googleMapUrl ? `<a href="${item.googleMapUrl}" target="_blank" rel="noreferrer">Google Map</a>` : "";
+  const actions = [mapLink, pageLink].filter(Boolean).join("");
+
+  return `
+    <div class="trip-map-popup">
+      <h3>${item.name}</h3>
+      <p><strong>分類：</strong>${meta.label}</p>
+      <p><strong>地區：</strong>${item.area || "待確認"}</p>
+      ${vegetarian}
+      <p><strong>推薦原因：</strong>${item.description || "待補"}</p>
+      <p><strong>營業時間：</strong>${item.openingHours || "待確認"}</p>
+      <p><strong>備註：</strong>${item.notes || "待補"}</p>
+      <div class="trip-map-popup__actions">${actions || "<span>詳情待補</span>"}</div>
+    </div>
+  `;
+}
+
+function setTripMapStatus(text) {
+  if (tripMapStatus) {
+    tripMapStatus.textContent = text;
+  }
+}
+
+async function initTripMap() {
+  if (!tripMapElement || typeof L === "undefined") {
+    return;
+  }
+
+  try {
+    const response = await fetch(getTripMapDataUrl(), { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const items = await response.json();
+    const locatedItems = items.filter((item) => Number.isFinite(item.lat) && Number.isFinite(item.lng));
+    const missingItems = items.filter((item) => !Number.isFinite(item.lat) || !Number.isFinite(item.lng));
+    const map = L.map(tripMapElement, { scrollWheelZoom: false }).setView([34.395, 132.459], 12);
+    const markerLayer = L.layerGroup().addTo(map);
+    const markers = locatedItems.map((item) => ({
+      item,
+      filters: getTripMapFilters(item),
+      marker: L.marker([item.lat, item.lng], { icon: createTripMapIcon(item) }).bindPopup(createTripMapPopup(item)),
+    }));
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+
+    function updateMarkers() {
+      const checked = [...tripMapFilters].filter((input) => input.checked).map((input) => input.dataset.mapFilter);
+      const showAll = checked.includes("all");
+      markerLayer.clearLayers();
+      markers.forEach(({ item, filters, marker }) => {
+        if (showAll || filters.some((filter) => checked.includes(filter))) {
+          marker.addTo(markerLayer);
+        }
+      });
+      const visibleCount = markerLayer.getLayers().length;
+      setTripMapStatus(`目前顯示 ${visibleCount} 個 marker；${missingItems.length} 筆資料待補座標。`);
+    }
+
+    tripMapFilters.forEach((input) => {
+      input.addEventListener("change", () => {
+        if (input.dataset.mapFilter === "all") {
+          tripMapFilters.forEach((filter) => {
+            filter.checked = input.checked;
+          });
+        } else {
+          const allFilter = [...tripMapFilters].find((filter) => filter.dataset.mapFilter === "all");
+          if (allFilter) {
+            allFilter.checked = [...tripMapFilters].filter((filter) => filter.dataset.mapFilter !== "all").every((filter) => filter.checked);
+          }
+        }
+        updateMarkers();
+      });
+    });
+
+    if (locatedItems.length) {
+      const bounds = L.latLngBounds(locatedItems.map((item) => [item.lat, item.lng]));
+      map.fitBounds(bounds, { padding: [28, 28] });
+    }
+
+    if (tripMapMissingCount) {
+      tripMapMissingCount.textContent = `${missingItems.length} 筆`;
+    }
+
+    if (tripMapMissingList) {
+      tripMapMissingList.innerHTML = missingItems
+        .map((item) => `<article><strong>${item.name}</strong><span>${tripMapCategoryMeta[item.category]?.label || item.category}｜${item.area || "地區待補"}</span><a href="${item.googleMapUrl}" target="_blank" rel="noreferrer">Google Map</a></article>`)
+        .join("");
+    }
+
+    updateMarkers();
+  } catch (error) {
+    setTripMapStatus("地圖資料暫時讀不到，請重新整理頁面。");
+  }
+}
+
+initTripMap();
 
 const foodAreas = [
   ["hiroshima-station", "廣島站 / ekie"],
@@ -777,6 +929,18 @@ const foodItems = [
     budget: "約 ¥600-1,500",
     group: "依座位狀況",
     query: "cafe Hiroshima Port Ujina",
+  },
+  {
+    name: "NICE COFFEE STAND",
+    area: "hatchobori",
+    categories: ["cafe", "backup"],
+    reason: "富士見町 15-17 的咖啡店，離住宿圈不遠，適合早上咖啡、甜點或自由日休息。",
+    budget: "每人約 ¥400-1,500",
+    group: "小團可，店面偏小建議分批或外帶",
+    query: "NICE COFFEE STAND Hiroshima Fujimicho 15-17",
+    tabelogQuery: "NICE COFFEE STAND",
+    vegFriendly: true,
+    vegNote: "咖啡飲品相對安全；甜點、可頌、烘焙品請確認奶油、明膠、蜂蜜與蛋奶成分。",
   },
 ];
 
