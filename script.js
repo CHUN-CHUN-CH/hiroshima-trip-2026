@@ -1037,7 +1037,6 @@ function renderFoodSections(container, groups, getItems, areaGroups = foodAreas,
 
     const section = document.createElement("details");
     section.className = "drawer food-section";
-    section.open = index === 0;
     section.innerHTML = `
       <summary>
         <span>${items.length} 個候選</span>
