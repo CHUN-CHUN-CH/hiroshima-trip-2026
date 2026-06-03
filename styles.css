@@ -808,6 +808,58 @@ footer p {
   font-weight: 800;
 }
 
+.live-info-grid {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.live-info-card {
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(47, 111, 94, 0.2);
+  border-radius: 8px;
+  background: rgba(47, 111, 94, 0.05);
+  padding: 14px;
+}
+
+.live-info-card span {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  background: rgba(193, 143, 54, 0.14);
+  color: #7a5a18;
+  padding: 4px 9px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.live-info-card h3 {
+  margin-top: 6px;
+  color: var(--green);
+  font-size: 18px;
+}
+
+.live-info-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 8px;
+}
+
+.live-info-links a {
+  min-height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  color: var(--green);
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+}
+
 .food-grid,
 .map-grid {
   display: grid;

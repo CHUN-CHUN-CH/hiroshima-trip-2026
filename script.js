@@ -1155,6 +1155,7 @@ const spotMeta = {
     closed: "請出發前再次確認官方網站",
     note: "潮汐會影響拍攝效果。",
     tide: true,
+    liveInfo: ["miyajima", "ferry", "weather", "sunset"],
     image: "../assets/spot-heroes/miyajima.svg",
   },
   "otorii.html": {
@@ -1163,20 +1164,21 @@ const spotMeta = {
     closed: "請出發前再次確認官方網站",
     note: "滿潮與退潮拍法不同。",
     tide: true,
+    liveInfo: ["miyajima", "ferry", "weather", "sunset"],
     image: "../assets/spot-heroes/miyajima.svg",
   },
-  "peace-memorial.html": { tags: ["必去", "室內", "雨天備案", "半日"], hours: "資料館依官方公告", closed: "請出發前再次確認官方網站", note: "內容沉重，請保留休息時間。", image: "../assets/spot-heroes/peace.svg" },
-  "shukkeien.html": { tags: ["可去", "戶外", "拍照", "半日"], hours: "請出發前再次確認官方網站", closed: "請出發前再次確認官方網站", note: "夏天午後注意補水。", image: "../assets/spot-heroes/garden.svg" },
-  "onomichi.html": { tags: ["可去", "戶外", "拍照", "美食", "一日"], hours: "街區戶外為主，店家各自不同", closed: "請出發前再次確認官方網站", note: "坡道多，穿好走的鞋。", image: "../assets/spot-heroes/onomichi.svg" },
-  "kure.html": { tags: ["可去", "雨天備案", "室內", "半日"], hours: "博物館依官方公告", closed: "請出發前再次確認官方網站", note: "適合下雨或酷暑備案。", image: "../assets/spot-heroes/kure.svg" },
-  "kintaikyo.html": { tags: ["可去", "戶外", "拍照", "半日"], hours: "橋梁區域依官方公告", closed: "請出發前再次確認官方網站", note: "最後一天請不要太晚回廣島。", image: "../assets/spot-heroes/bridge.svg" },
-  "saijo.html": { tags: ["可去", "美食", "購物", "半日"], hours: "酒藏與店家各自不同", closed: "請出發前再次確認官方網站", note: "試飲請注意回程交通與身體狀況。", image: "../assets/spot-heroes/sake.svg" },
-  "hondori.html": { tags: ["可去", "雨天備案", "購物", "美食"], hours: "商店各自不同", closed: "請出發前再次確認官方網站", note: "最適合當集合點與休息點。", image: "../assets/spot-heroes/city.svg" },
-  "omotesando.html": { tags: ["可去", "美食", "購物", "半日"], hours: "店家各自不同", closed: "請出發前再次確認官方網站", note: "午餐尖峰容易排隊。", image: "../assets/spot-heroes/food.svg" },
-  "daishoin.html": { tags: ["可去", "戶外", "拍照", "半日"], hours: "請出發前再次確認官方網站", closed: "請出發前再次確認官方網站", note: "有階梯與上坡。", image: "../assets/spot-heroes/temple.svg" },
-  "misen-ropeway.html": { tags: ["可去", "戶外", "拍照", "半日"], hours: "纜車依官方公告與天候", closed: "天候不佳可能停駛，請出發前確認", note: "纜車後仍需步行。", image: "../assets/spot-heroes/mountain.svg" },
+  "peace-memorial.html": { tags: ["必去", "室內", "雨天備案", "半日"], hours: "資料館依官方公告", closed: "請出發前再次確認官方網站", note: "內容沉重，請保留休息時間。", liveInfo: ["peaceMuseum", "weather"], image: "../assets/spot-heroes/peace.svg" },
+  "shukkeien.html": { tags: ["可去", "戶外", "拍照", "半日"], hours: "請出發前再次確認官方網站", closed: "請出發前再次確認官方網站", note: "夏天午後注意補水。", liveInfo: ["shukkeien", "weather"], image: "../assets/spot-heroes/garden.svg" },
+  "onomichi.html": { tags: ["可去", "戶外", "拍照", "美食", "一日"], hours: "街區戶外為主，店家各自不同", closed: "請出發前再次確認官方網站", note: "坡道多，穿好走的鞋。", liveInfo: ["jrWest", "onomichiRopeway", "weather", "sunset"], image: "../assets/spot-heroes/onomichi.svg" },
+  "kure.html": { tags: ["可去", "雨天備案", "室內", "半日"], hours: "博物館依官方公告", closed: "請出發前再次確認官方網站", note: "適合下雨或酷暑備案。", liveInfo: ["jrWest", "yamatoMuseum", "weather"], image: "../assets/spot-heroes/kure.svg" },
+  "kintaikyo.html": { tags: ["可去", "戶外", "拍照", "半日"], hours: "橋梁區域依官方公告", closed: "請出發前再次確認官方網站", note: "最後一天請不要太晚回廣島。", liveInfo: ["jrWest", "kintaikyo", "iwakuniRopeway", "sunset"], image: "../assets/spot-heroes/bridge.svg" },
+  "saijo.html": { tags: ["可去", "美食", "購物", "半日"], hours: "酒藏與店家各自不同", closed: "請出發前再次確認官方網站", note: "試飲請注意回程交通與身體狀況。", liveInfo: ["jrWest", "saijoSake"], image: "../assets/spot-heroes/sake.svg" },
+  "hondori.html": { tags: ["可去", "雨天備案", "購物", "美食"], hours: "商店各自不同", closed: "請出發前再次確認官方網站", note: "最適合當集合點與休息點。", liveInfo: ["weather"], image: "../assets/spot-heroes/city.svg" },
+  "omotesando.html": { tags: ["可去", "美食", "購物", "半日"], hours: "店家各自不同", closed: "請出發前再次確認官方網站", note: "午餐尖峰容易排隊。", liveInfo: ["miyajima", "ferry", "weather"], image: "../assets/spot-heroes/food.svg" },
+  "daishoin.html": { tags: ["可去", "戶外", "拍照", "半日"], hours: "請出發前再次確認官方網站", closed: "請出發前再次確認官方網站", note: "有階梯與上坡。", liveInfo: ["miyajima", "ferry", "weather"], image: "../assets/spot-heroes/temple.svg" },
+  "misen-ropeway.html": { tags: ["可去", "戶外", "拍照", "半日"], hours: "纜車依官方公告與天候", closed: "天候不佳可能停駛，請出發前確認", note: "纜車後仍需步行。", liveInfo: ["miyajima", "ferry", "ropeway", "weather", "sunset"], image: "../assets/spot-heroes/mountain.svg" },
   "hiroshima-castle.html": { tags: ["可去", "戶外", "拍照", "半日"], hours: "天守內部已於 2026 年 3 月關閉", closed: "天守內部關閉；外觀與城跡依現場狀況", note: "不要把它排成入館重點。", image: "../assets/spot-heroes/castle.svg" },
-  "hiroshima-port-fireworks.html": { tags: ["必去", "戶外", "拍照", "一日"], hours: "2026/7/25 20:00-21:00 予定", closed: "雨天或荒天可能調整，請出發前確認", note: "建議 17:30 前到場。", image: "../assets/spot-heroes/fireworks.svg" },
+  "hiroshima-port-fireworks.html": { tags: ["必去", "戶外", "拍照", "一日"], hours: "2026/7/25 20:00-21:00 予定", closed: "雨天或荒天可能調整，請出發前確認", note: "建議 17:30 前到場。", liveInfo: ["fireworks", "jrWest", "weather"], image: "../assets/spot-heroes/fireworks.svg" },
 };
 
 const miyajimaTideTripDay = {
@@ -1204,6 +1206,134 @@ function formatTaipeiTime(date = new Date()) {
     second: "2-digit",
     hour12: false,
   }).format(date);
+}
+
+const liveInfoModules = {
+  miyajima: {
+    label: "宮島今日資訊",
+    status: "待出發前確認",
+    note: "先看潮汐、渡輪與天氣；宮島行程受海象與戶外天候影響很大。",
+    sources: [{ label: "宮島觀光協會", url: "https://www.miyajima.or.jp/english/" }],
+  },
+  ferry: {
+    label: "宮島渡輪",
+    status: "待出發前確認",
+    note: "強風、豪雨或海象不佳可能影響渡輪。若停航，宮島、大鳥居、嚴島神社與彌山行程都要改市區備案。",
+    sources: [
+      { label: "JR Miyajima Ferry", url: "https://jr-miyajimaferry.co.jp/en/" },
+      { label: "Matsudai Ferry", url: "https://miyajima-matsudai.co.jp/english/" },
+    ],
+  },
+  ropeway: {
+    label: "彌山纜車",
+    status: "待出發前確認",
+    note: "強風、雷雨、維修都可能停駛；搭纜車後仍要步行，不是一下車就到山頂。",
+    sources: [{ label: "Miyajima Ropeway Official", url: "https://miyajima-ropeway.info/" }],
+  },
+  jrWest: {
+    label: "JR 西日本運行資訊",
+    status: "待出發前確認",
+    note: "宮島、尾道、吳市、錦帶橋、西條都會受 JR 影響。若有延誤，先改短行程或市區備案。",
+    sources: [{ label: "JR West Train Status", url: "https://trafficinfo.westjr.co.jp/chugoku.html" }],
+  },
+  weather: {
+    label: "廣島天氣警示",
+    status: "待出發前確認",
+    note: "7 月請特別注意高溫、雷雨、強風。戶外景點若遇警示，停留時間要縮短。",
+    sources: [
+      { label: "日本氣象廳 廣島警報", url: "https://www.jma.go.jp/bosai/warning/#area_type=offices&area_code=340000" },
+      { label: "Weather News Hiroshima", url: "https://weathernews.jp/onebox/tenki/hiroshima/" },
+    ],
+  },
+  sunset: {
+    label: "日落時間",
+    status: "待出發前確認",
+    note: "影響宮島、尾道、錦帶橋與花火前拍照時間；傍晚行程要同時確認回程交通。",
+    sources: [{ label: "Time and Date Hiroshima", url: "https://www.timeanddate.com/sun/japan/hiroshima" }],
+  },
+  fireworks: {
+    label: "花火活動狀態",
+    status: "待出發前確認",
+    note: "請確認是否舉辦、雨天或荒天公告、交通管制與散場動線。手機要充滿電，水和簡單食物先買好。",
+    sources: [
+      { label: "GOOD LUCK TRIP", url: "https://www.gltjp.com/en/directory/item/18911/" },
+      { label: "Dive Hiroshima", url: "https://dive-hiroshima.com/tw/events/events-69532/" },
+    ],
+  },
+  peaceMuseum: {
+    label: "和平紀念資料館",
+    status: "待出發前確認",
+    note: "確認開館、最後入館、人潮與是否需要預約；人多時先逛公園與原爆圓頂，再回資料館。",
+    sources: [{ label: "Hiroshima Peace Memorial Museum", url: "https://hpmmuseum.jp/?lang=eng" }],
+  },
+  yamatoMuseum: {
+    label: "大和博物館",
+    status: "待出發前確認",
+    note: "吳市雨天備案核心；若休館或展覽調整，請改廣島市區室內景點。",
+    sources: [{ label: "Yamato Museum Official", url: "https://yamato-museum.com/en-lp/" }],
+  },
+  shukkeien: {
+    label: "縮景園開園",
+    status: "待出發前確認",
+    note: "確認今日開園、休園、最後入園時間；夏季中午太熱，建議早上或傍晚。",
+    sources: [{ label: "縮景園 Official", url: "https://shukkeien.jp/" }],
+  },
+  kintaikyo: {
+    label: "錦帶橋通行",
+    status: "待出發前確認",
+    note: "惡劣天候會影響橋上體驗與拍照；最後一天尤其要先確認回廣島與機場時間。",
+    sources: [{ label: "錦帶橋 Official", url: "https://kintaikyo.iwakuni-city.net/en/" }],
+  },
+  iwakuniRopeway: {
+    label: "岩國城纜車",
+    status: "待出發前確認",
+    note: "若要加岩國城，請確認纜車是否運行與末班；停駛就只排橋與河岸。",
+    sources: [{ label: "岩國城 Ropeway", url: "https://kankou.iwakuni-city.net/ropeway.html" }],
+  },
+  saijoSake: {
+    label: "西條酒藏營業 / 試飲",
+    status: "待出發前確認",
+    note: "各酒藏時間不同，試飲不一定每天都有；飲酒後請搭 JR 回廣島，不要排太趕。",
+    sources: [{ label: "Dive Hiroshima Saijo", url: "https://dive-hiroshima.com/en/explore/1199/" }],
+  },
+  onomichiRopeway: {
+    label: "千光寺纜車",
+    status: "待出發前確認",
+    note: "尾道坡道多，酷暑時纜車很重要；若停駛，請改短路線、咖啡廳與商店街。",
+    sources: [{ label: "千光寺山 Ropeway", url: "https://mt-senkoji-rw.jp/" }],
+  },
+};
+
+function renderLiveInfoSection(keys = []) {
+  const modules = keys.map((key) => liveInfoModules[key]).filter(Boolean);
+  if (!modules.length) {
+    return null;
+  }
+
+  const section = document.createElement("section");
+  section.className = "spot-section live-info";
+  section.innerHTML = `
+    <div class="section__head">
+      <p class="eyebrow">Live Check</p>
+      <h2>今日即時資訊</h2>
+      <p>最後檢查時間：${formatTaipeiTime()}。以下狀態不寫死，出發前請點官方來源確認。</p>
+    </div>
+    <div class="live-info-grid">
+      ${modules.map((item) => `
+        <article class="live-info-card">
+          <div>
+            <span>${item.status}</span>
+            <h3>${item.label}</h3>
+          </div>
+          <p>${item.note}</p>
+          <div class="live-info-links">
+            ${item.sources.map((source) => `<a href="${source.url}" target="_blank" rel="noreferrer">${source.label}</a>`).join("")}
+          </div>
+        </article>
+      `).join("")}
+    </div>
+  `;
+  return section;
 }
 
 function renderTideEventList(events, emptyText) {
@@ -1278,10 +1408,21 @@ if (meta && spotPage) {
   tagSection.className = "spot-section";
   tagSection.innerHTML = `<h2>景點標籤</h2><div class="tag-strip">${meta.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>`;
   const quickSection = spotPage.querySelector(".spot-section--quick");
+  const liveInfoSection = renderLiveInfoSection(meta.liveInfo);
   if (quickSection) {
-    quickSection.after(tagSection);
+    if (liveInfoSection) {
+      quickSection.after(liveInfoSection);
+      liveInfoSection.after(tagSection);
+    } else {
+      quickSection.after(tagSection);
+    }
   } else {
-    spotPage.prepend(tagSection);
+    if (liveInfoSection) {
+      spotPage.prepend(liveInfoSection);
+      liveInfoSection.after(tagSection);
+    } else {
+      spotPage.prepend(tagSection);
+    }
   }
 
   if (meta.tide) {
