@@ -1,104 +1,90 @@
 {
-  "checked_at": "2026-06-03T08:00:00.000Z",
-  "generated_by": "baseline",
-  "statuses": {
-    "weather": {
-      "status": "info",
-      "summary": "今日狀態：等待 GitHub Action 更新天氣警示",
-      "note": "GitHub Action 會抓日本氣象廳警報 JSON；出發前仍請確認高溫、雷雨、強風。",
-      "source": "https://www.jma.go.jp/bosai/warning/#area_type=offices&area_code=340000",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "jrWest": {
-      "status": "info",
-      "summary": "今日狀態：等待 GitHub Action 更新 JR 運行資訊",
-      "note": "GitHub Action 會抓 JR West 中國地區運行資訊；宮島、尾道、吳市、西條、岩國都會受影響。",
-      "source": "https://trafficinfo.westjr.co.jp/chugoku.html",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "ropeway": {
-      "status": "info",
-      "summary": "今日狀態：等待 GitHub Action 更新彌山纜車",
-      "note": "GitHub Action 會抓彌山纜車官方頁，判斷是否有停駛或休止關鍵字。",
-      "source": "https://miyajima-ropeway.info/",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "ferry": {
-      "status": "info",
-      "summary": "今日狀態：等待 GitHub Action 更新宮島渡輪",
-      "note": "GitHub Action 會抓 JR Ferry 與 Matsudai Ferry 官方頁，判斷是否有停航或天候關鍵字。",
-      "source": "https://jr-miyajimaferry.co.jp/en/",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "sunset": {
-      "status": "ok",
-      "summary": "今日狀態：日落時間由前端即時計算",
-      "note": "頁面會依目前日期計算廣島日落時間；夕陽拍照請搭配天氣與回程班次。",
-      "source": "https://www.timeanddate.com/sun/japan/hiroshima",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "fireworks": {
-      "status": "info",
-      "summary": "今日狀態：花火活動日尚未到",
-      "note": "活動日 2026/7/25 當天請確認是否舉辦、交通管制、雨天或荒天公告。",
-      "source": "https://www.gltjp.com/en/directory/item/18911/",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "miyajima": {
-      "status": "info",
-      "summary": "今日狀態：潮汐已由頁面顯示，渡輪與天氣同步檢查",
-      "note": "宮島行程請一起看潮汐、渡輪、天氣與日落。",
-      "source": "https://www.miyajima.or.jp/english/",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "peaceMuseum": {
-      "status": "info",
-      "summary": "今日狀態：資料館營業狀態需看官方公告",
-      "note": "和平紀念資料館可能有人潮與最後入館時間，出發前請看官方頁。",
-      "source": "https://hpmmuseum.jp/?lang=eng",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "yamatoMuseum": {
-      "status": "info",
-      "summary": "今日狀態：大和博物館營業狀態需看官方公告",
-      "note": "吳市雨天備案核心，若休館請改市區室內景點。",
-      "source": "https://yamato-museum.com/en-lp/",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "shukkeien": {
-      "status": "info",
-      "summary": "今日狀態：縮景園開園狀態需看官方公告",
-      "note": "庭園受高溫、雨勢與臨時休園影響，請確認最後入園時間。",
-      "source": "https://shukkeien.jp/",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "kintaikyo": {
-      "status": "info",
-      "summary": "今日狀態：錦帶橋通行狀態需看官方公告",
-      "note": "惡劣天候可能影響橋梁體驗；最後一天請先保回程。",
-      "source": "https://kintaikyo.iwakuni-city.net/en/",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "iwakuniRopeway": {
-      "status": "info",
-      "summary": "今日狀態：岩國城纜車狀態需看官方公告",
-      "note": "若停駛，就只排錦帶橋與河岸散步。",
-      "source": "https://kankou.iwakuni-city.net/ropeway.html",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "saijoSake": {
-      "status": "info",
-      "summary": "今日狀態：各酒藏營業與試飲需個別確認",
-      "note": "西條酒藏時間不一致，試飲不一定每天開放。",
-      "source": "https://dive-hiroshima.com/en/explore/1199/",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    },
-    "onomichiRopeway": {
-      "status": "info",
-      "summary": "今日狀態：千光寺纜車狀態需看官方公告",
-      "note": "尾道坡道多，若纜車停駛請改短路線與咖啡廳。",
-      "source": "https://mt-senkoji-rw.jp/",
-      "checked_at": "2026-06-03T08:00:00.000Z"
-    }
-  }
+    "checked_at":  "2026-06-03T09:39:04.9493335Z",
+    "generated_by":  "manual-powershell-live-snapshot",
+    "statuses":  {
+                     "weather":  {
+                                     "status":  "ok",
+                                     "summary":  "今日狀態：未偵測到主要警報",
+                                     "note":  "已讀取日本氣象廳廣島警報資料，未偵測到主要警報關鍵字；仍請依當天體感與雷雨雲判斷。",
+                                     "source":  "https://www.jma.go.jp/bosai/warning/data/warning/340000.json"
+                                 },
+                     "jrWest":  {
+                                    "status":  "unknown",
+                                    "summary":  "今日狀態：JR 官網讀取中",
+                                    "note":  "目前無法自動判讀 JR 西日本中國地區運行資訊，請點官方頁確認。",
+                                    "source":  "https://trafficinfo.westjr.co.jp/chugoku.html"
+                                },
+                     "ropeway":  {
+                                     "status":  "caution",
+                                     "summary":  "今日狀態：纜車可能停駛或休止",
+                                     "note":  "已讀取彌山纜車官方頁並偵測到停駛/休止相關字樣，宮島日要準備不搭纜車版本。",
+                                     "source":  "https://miyajima-ropeway.info/"
+                                 },
+                     "ferry":  {
+                                   "status":  "ok",
+                                   "summary":  "今日狀態：渡輪未偵測到停航公告",
+                                   "note":  "已讀取 JR / Matsudai 渡輪官方頁，未偵測到明顯停航公告；強風豪雨時仍請出門前再看一次。",
+                                   "source":  "https://jr-miyajimaferry.co.jp/en/"
+                               },
+                     "sunset":  {
+                                    "status":  "info",
+                                    "summary":  "今日狀態：前端會自動計算日落",
+                                    "note":  "手機打開頁面後會用本機日期計算廣島今日約略日落時間，適合安排大鳥居與海邊拍照。",
+                                    "source":  "https://www.timeanddate.com/sun/japan/hiroshima"
+                                },
+                     "fireworks":  {
+                                       "status":  "info",
+                                       "summary":  "今日狀態：花火活動資料已建立",
+                                       "note":  "活動日仍以主辦單位公告為準；若遇雨天、強風，請以當天公告與交通管制為主。",
+                                       "source":  "https://www.gltjp.com/en/directory/item/18911/"
+                                   },
+                     "miyajima":  {
+                                      "status":  "info",
+                                      "summary":  "今日狀態：宮島行程請看渡輪/氣象",
+                                      "note":  "宮島本身沒有單一即時開閉 API；請以上方渡輪、纜車、天氣狀態決定是否調整。",
+                                      "source":  "https://www.miyajima.or.jp/english/"
+                                  },
+                     "peaceMuseum":  {
+                                         "status":  "info",
+                                         "summary":  "今日狀態：博物館請看官方開館頁",
+                                         "note":  "和平紀念資料館若遇特別休館或入館調整，官方頁會最準。",
+                                         "source":  "https://hpmmuseum.jp/?lang=eng"
+                                     },
+                     "yamatoMuseum":  {
+                                          "status":  "info",
+                                          "summary":  "今日狀態：室內備案可用，開館請確認",
+                                          "note":  "吳市大和博物館適合雨天；出發前看官方頁確認休館與特展。",
+                                          "source":  "https://yamato-museum.com/en-lp/"
+                                      },
+                     "shukkeien":  {
+                                       "status":  "info",
+                                       "summary":  "今日狀態：庭園天候影響較大",
+                                       "note":  "縮景園適合晴天或陰天；大雨、酷暑時建議縮短停留。",
+                                       "source":  "https://shukkeien.jp/"
+                                   },
+                     "kintaikyo":  {
+                                       "status":  "info",
+                                       "summary":  "今日狀態：戶外橋景，請看天氣",
+                                       "note":  "錦帶橋是戶外半日行程，強雨或酷暑會明顯影響體驗。",
+                                       "source":  "https://kintaikyo.iwakuni-city.net/en/"
+                                   },
+                     "iwakuniRopeway":  {
+                                            "status":  "info",
+                                            "summary":  "今日狀態：岩國纜車請看官方",
+                                            "note":  "如果要上岩國城，先確認纜車營運與末班時間。",
+                                            "source":  "https://kankou.iwakuni-city.net/ropeway.html"
+                                        },
+                     "saijoSake":  {
+                                       "status":  "info",
+                                       "summary":  "今日狀態：酒藏多為店家個別營業",
+                                       "note":  "西條酒藏街適合半日；各酒藏營業時間不同，想試飲請先看店家公告。",
+                                       "source":  "https://dive-hiroshima.com/en/explore/1199/"
+                                   },
+                     "onomichiRopeway":  {
+                                             "status":  "info",
+                                             "summary":  "今日狀態：尾道纜車請看官方",
+                                             "note":  "尾道坡道多，酷暑或雨天請縮短步行，纜車末班時間要先看。",
+                                             "source":  "https://mt-senkoji-rw.jp/"
+                                         }
+                 }
 }
