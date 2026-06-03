@@ -1211,13 +1211,13 @@ function formatTaipeiTime(date = new Date()) {
 const liveInfoModules = {
   miyajima: {
     label: "宮島今日資訊",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "先看潮汐、渡輪與天氣；宮島行程受海象與戶外天候影響很大。",
     sources: [{ label: "宮島觀光協會", url: "https://www.miyajima.or.jp/english/" }],
   },
   ferry: {
     label: "宮島渡輪",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "強風、豪雨或海象不佳可能影響渡輪。若停航，宮島、大鳥居、嚴島神社與彌山行程都要改市區備案。",
     sources: [
       { label: "JR Miyajima Ferry", url: "https://jr-miyajimaferry.co.jp/en/" },
@@ -1226,19 +1226,19 @@ const liveInfoModules = {
   },
   ropeway: {
     label: "彌山纜車",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "強風、雷雨、維修都可能停駛；搭纜車後仍要步行，不是一下車就到山頂。",
     sources: [{ label: "Miyajima Ropeway Official", url: "https://miyajima-ropeway.info/" }],
   },
   jrWest: {
     label: "JR 西日本運行資訊",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "宮島、尾道、吳市、錦帶橋、西條都會受 JR 影響。若有延誤，先改短行程或市區備案。",
     sources: [{ label: "JR West Train Status", url: "https://trafficinfo.westjr.co.jp/chugoku.html" }],
   },
   weather: {
     label: "廣島天氣警示",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "7 月請特別注意高溫、雷雨、強風。戶外景點若遇警示，停留時間要縮短。",
     sources: [
       { label: "日本氣象廳 廣島警報", url: "https://www.jma.go.jp/bosai/warning/#area_type=offices&area_code=340000" },
@@ -1247,13 +1247,13 @@ const liveInfoModules = {
   },
   sunset: {
     label: "日落時間",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "影響宮島、尾道、錦帶橋與花火前拍照時間；傍晚行程要同時確認回程交通。",
     sources: [{ label: "Time and Date Hiroshima", url: "https://www.timeanddate.com/sun/japan/hiroshima" }],
   },
   fireworks: {
     label: "花火活動狀態",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "請確認是否舉辦、雨天或荒天公告、交通管制與散場動線。手機要充滿電，水和簡單食物先買好。",
     sources: [
       { label: "GOOD LUCK TRIP", url: "https://www.gltjp.com/en/directory/item/18911/" },
@@ -1262,43 +1262,43 @@ const liveInfoModules = {
   },
   peaceMuseum: {
     label: "和平紀念資料館",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "確認開館、最後入館、人潮與是否需要預約；人多時先逛公園與原爆圓頂，再回資料館。",
     sources: [{ label: "Hiroshima Peace Memorial Museum", url: "https://hpmmuseum.jp/?lang=eng" }],
   },
   yamatoMuseum: {
     label: "大和博物館",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "吳市雨天備案核心；若休館或展覽調整，請改廣島市區室內景點。",
     sources: [{ label: "Yamato Museum Official", url: "https://yamato-museum.com/en-lp/" }],
   },
   shukkeien: {
     label: "縮景園開園",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "確認今日開園、休園、最後入園時間；夏季中午太熱，建議早上或傍晚。",
     sources: [{ label: "縮景園 Official", url: "https://shukkeien.jp/" }],
   },
   kintaikyo: {
     label: "錦帶橋通行",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "惡劣天候會影響橋上體驗與拍照；最後一天尤其要先確認回廣島與機場時間。",
     sources: [{ label: "錦帶橋 Official", url: "https://kintaikyo.iwakuni-city.net/en/" }],
   },
   iwakuniRopeway: {
     label: "岩國城纜車",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "若要加岩國城，請確認纜車是否運行與末班；停駛就只排橋與河岸。",
     sources: [{ label: "岩國城 Ropeway", url: "https://kankou.iwakuni-city.net/ropeway.html" }],
   },
   saijoSake: {
     label: "西條酒藏營業 / 試飲",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "各酒藏時間不同，試飲不一定每天都有；飲酒後請搭 JR 回廣島，不要排太趕。",
     sources: [{ label: "Dive Hiroshima Saijo", url: "https://dive-hiroshima.com/en/explore/1199/" }],
   },
   onomichiRopeway: {
     label: "千光寺纜車",
-    status: "待出發前確認",
+    status: "請點官方來源確認",
     note: "尾道坡道多，酷暑時纜車很重要；若停駛，請改短路線、咖啡廳與商店街。",
     sources: [{ label: "千光寺山 Ropeway", url: "https://mt-senkoji-rw.jp/" }],
   },
@@ -1315,8 +1315,8 @@ function renderLiveInfoSection(keys = []) {
   section.innerHTML = `
     <div class="section__head">
       <p class="eyebrow">Live Check</p>
-      <h2>今日即時資訊</h2>
-      <p>最後檢查時間：${formatTaipeiTime()}。以下狀態不寫死，出發前請點官方來源確認。</p>
+      <h2>今日即時狀態</h2>
+      <p>最後檢查時間：${formatTaipeiTime()}。若本頁無法自動抓到官方狀態，請直接點官方來源確認最新公告。</p>
     </div>
     <div class="live-info-grid">
       ${modules.map((item) => `
