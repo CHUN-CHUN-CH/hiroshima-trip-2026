@@ -844,7 +844,6 @@ footer p {
   font-weight: 800;
 }
 
-.food-card > a,
 .map-card > a {
   min-height: 44px;
   display: grid;
@@ -855,6 +854,32 @@ footer p {
   color: white;
   font-weight: 900;
   text-decoration: none;
+}
+
+.food-card__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.food-card__actions a {
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--green);
+  color: white;
+  padding: 10px 12px;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+}
+
+.food-card__actions a + a {
+  border: 1px solid var(--green);
+  background: white;
+  color: var(--green);
 }
 
 .checklist-page label {

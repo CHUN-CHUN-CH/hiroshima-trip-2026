@@ -620,6 +620,8 @@ function createFoodCard(item, areaGroups = foodAreas, categoryGroups = foodCateg
     .map((category) => categoryGroups.find(([key]) => key === category)?.[1] || category)
     .join(" / ");
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.query)}`;
+  const tabelogQuery = item.tabelogQuery || item.query || item.name;
+  const tabelogUrl = `https://tabelog.com/rstLst/?sw=${encodeURIComponent(tabelogQuery)}`;
   const badges = [
     item.vegFriendly ? '<span class="food-badge food-badge--veg">素食友善</span>' : "",
     item.vegCheck ? '<span class="food-badge food-badge--veg">台灣蛋奶素檢查</span>' : "",
@@ -637,7 +639,10 @@ function createFoodCard(item, areaGroups = foodAreas, categoryGroups = foodCateg
       <div><dt>多人</dt><dd>${item.group}</dd></div>
     </dl>
     ${vegNote ? `<p class="veg-note">素食提醒：${vegNote}</p>` : ""}
-    <a href="${mapUrl}" target="_blank" rel="noreferrer">Google Map</a>
+    <div class="food-card__actions">
+      <a href="${mapUrl}" target="_blank" rel="noreferrer">Google Map</a>
+      <a href="${tabelogUrl}" target="_blank" rel="noreferrer">食べログ</a>
+    </div>
   `;
   return article;
 }
