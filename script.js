@@ -1382,6 +1382,50 @@ function refreshLiveInfoSection(section) {
       note.textContent = `以本機日期計算的廣島日落時間約 ${sunset}。若要拍夕陽，請把回程交通和天氣一起看。`;
     }
   }
+  refreshLiveInfoFromStatusJson(section);
+}
+
+function getLiveStatusUrl() {
+  const prefix = location.pathname.includes("/spots/") ? "../" : "";
+  return `${prefix}assets/live-status.json?v=${Date.now()}`;
+}
+
+async function refreshLiveInfoFromStatusJson(section) {
+  try {
+    const response = await fetch(getLiveStatusUrl(), { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    const data = await response.json();
+    const checkedAt = data.checked_at ? formatTaipeiTime(new Date(data.checked_at)) : formatTaipeiTime();
+    const intro = section.querySelector(".section__head p:last-child");
+    if (intro) {
+      intro.textContent = `最後更新：${checkedAt}。狀態由 GitHub Action 抓官方資料產生；官網按鈕保留給你看原始公告。`;
+    }
+
+    section.querySelectorAll("[data-live-card]").forEach((card) => {
+      const key = card.dataset.liveCard;
+      const item = data.statuses?.[key];
+      if (!item) {
+        return;
+      }
+      const status = card.querySelector("[data-live-status]");
+      const note = card.querySelector("[data-live-note]");
+      if (status) {
+        status.textContent = item.summary;
+      }
+      if (note) {
+        note.textContent = item.note;
+      }
+      card.classList.remove("live-info-card--ok", "live-info-card--caution", "live-info-card--info", "live-info-card--unknown");
+      card.classList.add(`live-info-card--${item.status || "info"}`);
+    });
+  } catch (error) {
+    const intro = section.querySelector(".section__head p:last-child");
+    if (intro) {
+      intro.textContent = `最後檢查時間：${formatTaipeiTime()}。目前讀不到 live-status.json，先顯示頁面內建狀態；請重新整理或點官方來源。`;
+    }
+  }
 }
 
 function renderTideEventList(events, emptyText) {

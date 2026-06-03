@@ -834,6 +834,26 @@ footer p {
   font-weight: 900;
 }
 
+.live-info-card--ok span {
+  background: rgba(47, 111, 94, 0.14);
+  color: var(--green);
+}
+
+.live-info-card--caution {
+  border-color: rgba(185, 84, 50, 0.35);
+  background: rgba(185, 84, 50, 0.06);
+}
+
+.live-info-card--caution span {
+  background: rgba(185, 84, 50, 0.16);
+  color: #9b3e23;
+}
+
+.live-info-card--unknown span {
+  background: rgba(18, 35, 43, 0.1);
+  color: #3f4b53;
+}
+
 .live-info-card h3 {
   margin-top: 6px;
   color: var(--green);
