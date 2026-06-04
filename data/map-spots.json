@@ -160,6 +160,26 @@
         "priority":  "A"
     },
     {
+        "id":  "simose-art-museum",
+        "name":  "下瀨美術館",
+        "type":  "spot",
+        "category":  "sightseeing",
+        "tags":  [
+                     "optional",
+                     "sunday-shuttle"
+                 ],
+        "area":  "大竹市｜晴海",
+        "vegetarianType":  "",
+        "lat":  34.241671,
+        "lng":  132.227153,
+        "description":  "7/26 自願團候選點，建築、瀨戶內海景與美術館本體都適合拍照。",
+        "openingHours":  "請看官方；7/26 接駁車適用官方 2026/4/29-8/30 時刻表",
+        "notes":  "免費接駁車僅土日祝運行，25 席滿車可能提早發車；JR 班次出發前再重查。",
+        "googleMapUrl":  "https://www.google.com/maps/search/?api=1&query=SIMOSE+Art+Museum+2-10-50+Harumi+Otake",
+        "pageUrl":  "",
+        "priority":  "A"
+    },
+    {
         "id":  "hiroshima-station",
         "name":  "廣島站",
         "type":  "transport",
