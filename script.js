@@ -182,7 +182,7 @@ const tripMapCategoryMeta = {
 };
 function getTripMapDataUrl() {
   const prefix = location.pathname.includes("/spots/") ? "../" : "";
-  return `${prefix}data/map-spots.json?v=dynamic-map4`;
+  return `${prefix}data/map-spots.json?v=dynamic-map5`;
 }
 
 function getTripMapFilters(item) {
@@ -201,12 +201,18 @@ function getTripMapFilters(item) {
 
 function shouldShowTripMapItem(item, filters, checked) {
   const vegetarianOnly = checked.includes("vegetarian");
-  if (vegetarianOnly && !filters.includes("vegetarian")) {
-    return false;
-  }
-
   if (checked.includes("all") && !vegetarianOnly) {
     return true;
+  }
+
+  if (vegetarianOnly) {
+    if (!filters.includes("vegetarian")) {
+      return false;
+    }
+
+    const vegetarianCategoryFilters = ["okonomiyaki", "noodles", "curry", "cafe", "japanese"];
+    const checkedVegetarianCategories = checked.filter((filter) => vegetarianCategoryFilters.includes(filter));
+    return !checkedVegetarianCategories.length || checkedVegetarianCategories.some((filter) => filters.includes(filter));
   }
 
   return filters.every((filter) => {
