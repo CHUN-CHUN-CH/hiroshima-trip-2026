@@ -144,6 +144,8 @@ const mapItems = [
   ["尾道", "Onomichi Hiroshima"],
   ["吳市", "Kure Hiroshima"],
   ["錦帶橋", "Kintaikyo Bridge Iwakuni"],
+  ["下瀨美術館", "SIMOSE Art Museum Otake Hiroshima"],
+  ["大竹站東口", "Otake Station East Exit"],
   ["西條酒藏", "Saijo Sake Brewery Street Hiroshima"],
   ["花火會場", "Hiroshima Port Ujina Hatoba Park"],
 ];
@@ -179,7 +181,7 @@ const tripMapCategoryMeta = {
 };
 function getTripMapDataUrl() {
   const prefix = location.pathname.includes("/spots/") ? "../" : "";
-  return `${prefix}data/map-spots.json?v=dynamic-map1`;
+  return `${prefix}data/map-spots.json?v=dynamic-map2`;
 }
 
 function getTripMapFilters(item) {
@@ -1369,6 +1371,7 @@ const spotMeta = {
   "onomichi.html": { tags: ["可去", "戶外", "拍照", "美食", "一日"], hours: "街區戶外為主，店家各自不同", closed: "請出發前再次確認官方網站", note: "坡道多，穿好走的鞋。", liveInfo: ["jrWest", "onomichiRopeway", "weather", "sunset"], image: "../assets/spot-heroes/onomichi.svg" },
   "kure.html": { tags: ["可去", "雨天備案", "室內", "半日"], hours: "博物館依官方公告", closed: "請出發前再次確認官方網站", note: "適合下雨或酷暑備案。", liveInfo: ["jrWest", "yamatoMuseum", "weather"], image: "../assets/spot-heroes/kure.svg" },
   "kintaikyo.html": { tags: ["可去", "戶外", "拍照", "半日"], hours: "橋梁區域依官方公告", closed: "請出發前再次確認官方網站", note: "最後一天請不要太晚回廣島。", liveInfo: ["jrWest", "kintaikyo", "iwakuniRopeway", "sunset"], image: "../assets/spot-heroes/bridge.svg" },
+  "simose.html": { tags: ["可去", "室內", "戶外", "拍照", "半日"], hours: "9:30-17:00（入館至 16:30）", closed: "週一休館；祝休日則開館，年末年始與展示替換期間另看官方", note: "7/26 是週日，可搭官方土日祝接駁車；滿車風險要留緩衝。", liveInfo: ["jrWest", "simoseMuseum", "weather"], image: "../assets/spot-heroes/simose.svg" },
   "saijo.html": { tags: ["可去", "美食", "購物", "半日"], hours: "酒藏與店家各自不同", closed: "請出發前再次確認官方網站", note: "試飲請注意回程交通與身體狀況。", liveInfo: ["jrWest", "saijoSake"], image: "../assets/spot-heroes/sake.svg" },
   "hondori.html": { tags: ["可去", "雨天備案", "購物", "美食"], hours: "商店各自不同", closed: "請出發前再次確認官方網站", note: "最適合當集合點與休息點。", liveInfo: ["weather"], image: "../assets/spot-heroes/city.svg" },
   "omotesando.html": { tags: ["可去", "美食", "購物", "半日"], hours: "店家各自不同", closed: "請出發前再次確認官方網站", note: "午餐尖峰容易排隊。", liveInfo: ["miyajima", "ferry", "weather"], image: "../assets/spot-heroes/food.svg" },
@@ -1480,6 +1483,15 @@ const liveInfoModules = {
     status: "今日狀態：通行公告需確認",
     note: "惡劣天候會影響橋上體驗與拍照；最後一天尤其要先確認回廣島與機場時間。",
     sources: [{ label: "錦帶橋 Official", url: "https://kintaikyo.iwakuni-city.net/en/" }],
+  },
+  simoseMuseum: {
+    label: "下瀨美術館 / 接駁車",
+    status: "今日狀態：開館與接駁車公告需確認",
+    note: "美術館通常 9:30-17:00，週一休館；官方接駁車為土日祝運行，7/26 週日適用。出發前請再看官方 Access 與時刻表。",
+    sources: [
+      { label: "SIMOSE Access", url: "https://simose-museum.jp/access/" },
+      { label: "SIMOSE Information", url: "https://simose-museum.jp/info/" },
+    ],
   },
   iwakuniRopeway: {
     label: "岩國城纜車",

@@ -176,7 +176,7 @@
         "openingHours":  "請看官方；7/26 接駁車適用官方 2026/4/29-8/30 時刻表",
         "notes":  "免費接駁車僅土日祝運行，25 席滿車可能提早發車；JR 班次出發前再重查。",
         "googleMapUrl":  "https://www.google.com/maps/search/?api=1&query=SIMOSE+Art+Museum+2-10-50+Harumi+Otake",
-        "pageUrl":  "",
+        "pageUrl":  "spots/simose.html",
         "priority":  "A"
     },
     {
@@ -194,6 +194,26 @@
         "googleMapUrl":  "https://www.google.com/maps/search/?api=1&query=Hiroshima+Station",
         "pageUrl":  "",
         "priority":  "S"
+    },
+    {
+        "id":  "otake-station-east",
+        "name":  "大竹站東口",
+        "type":  "transport",
+        "category":  "transport",
+        "tags":  [
+                     "simose-day",
+                     "shuttle"
+                 ],
+        "area":  "大竹市｜新町",
+        "vegetarianType":  "",
+        "lat":  34.2174,
+        "lng":  132.2237,
+        "description":  "7/26 下瀨美術館自願團的 JR 轉接駁車節點。",
+        "openingHours":  "依 JR 與下瀨美術館接駁車公告",
+        "notes":  "官方 Access 寫接駁車停在 JR 大竹駅東口；滿車可能提早發車，請保留轉乘緩衝。",
+        "googleMapUrl":  "https://www.google.com/maps/search/?api=1&query=Otake+Station+East+Exit",
+        "pageUrl":  "spots/simose.html",
+        "priority":  "A"
     },
     {
         "id":  "miyajimaguchi-station",
