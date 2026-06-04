@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="SIMOSE Art Museum inspired seaside museum illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#cfe4e8"/>
+      <stop offset="1" stop-color="#eef4f1"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#7fb1bd"/>
+      <stop offset="1" stop-color="#c9d9d3"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#edf4f1"/>
+      <stop offset="1" stop-color="#9fb2ad"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#sky)"/>
+  <path d="M0 442c145-42 291-45 438-9 127 31 246 30 357-2 86-24 153-21 205 7 67 36 134 44 200 22v280H0z" fill="url(#water)" opacity=".85"/>
+  <path d="M0 498c111-18 206-14 286 12 112 36 227 33 345-8 127-44 251-36 371 24 59 29 125 32 198 9v185H0z" fill="#d9e5df" opacity=".65"/>
+  <rect x="210" y="292" width="780" height="92" rx="4" fill="url(#glass)" opacity=".9"/>
+  <rect x="230" y="316" width="740" height="18" fill="#f7faf6" opacity=".88"/>
+  <rect x="260" y="385" width="680" height="112" rx="3" fill="#f0f5f1"/>
+  <rect x="296" y="408" width="116" height="66" fill="#d25542"/>
+  <rect x="436" y="408" width="116" height="66" fill="#e7b842"/>
+  <rect x="576" y="408" width="116" height="66" fill="#2f8f7b"/>
+  <rect x="716" y="408" width="116" height="66" fill="#356fb0"/>
+  <path d="M184 512h832v52H184z" fill="#2f3d42" opacity=".72"/>
+  <path d="M252 277h696v28H252z" fill="#314047"/>
+  <circle cx="982" cy="255" r="54" fill="#f6f1df" opacity=".65"/>
+  <path d="M126 548c73 18 149 18 228 0 75-17 142-18 201-2 79 22 158 20 237-6 87-28 177-23 269 14" fill="none" stroke="#ffffff" stroke-width="8" opacity=".35"/>
+</svg>
