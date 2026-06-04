@@ -300,18 +300,28 @@
         </div>
 
         <div class="map-shell" data-trip-map-shell>
-          <div class="map-filter-bar" aria-label="旅遊地圖篩選">
-            <label><input type="checkbox" data-map-filter="all" checked />全部顯示</label>
-            <label><input type="checkbox" data-map-filter="spot" checked />景點</label>
-            <label><input type="checkbox" data-map-filter="restaurant" checked />素食餐廳</label>
-            <label><input type="checkbox" data-map-filter="okonomiyaki" checked />廣島燒</label>
-            <label><input type="checkbox" data-map-filter="noodles" checked />拉麵 / 麵類</label>
-            <label><input type="checkbox" data-map-filter="curry" checked />咖哩 / 印度料理</label>
-            <label><input type="checkbox" data-map-filter="cafe" checked />咖啡甜點</label>
-            <label><input type="checkbox" data-map-filter="japanese" checked />精進料理 / 日本料理</label>
-            <label><input type="checkbox" data-map-filter="transport" checked />交通</label>
-            <label><input type="checkbox" data-map-filter="meeting" checked />集合地點</label>
-            <label><input type="checkbox" data-map-filter="backup" checked />備案地點</label>
+          <div class="map-filter-panel" aria-label="旅遊地圖篩選">
+            <div class="map-filter-bar map-filter-bar--primary">
+              <label><input type="checkbox" data-map-filter="all" checked />全部</label>
+              <label><input type="checkbox" data-map-filter="spot" checked />景點</label>
+              <label><input type="checkbox" data-map-filter="restaurant" checked />餐廳</label>
+              <label><input type="checkbox" data-map-filter="late-night" checked />宵夜</label>
+              <label><input type="checkbox" data-map-filter="transport" checked />交通</label>
+              <label><input type="checkbox" data-map-filter="meeting" checked />集合</label>
+            </div>
+            <details class="map-filter-drawer">
+              <summary>更多篩選</summary>
+              <div class="map-filter-bar map-filter-bar--detail">
+                <label><input type="checkbox" data-map-filter="okonomiyaki" checked />廣島燒</label>
+                <label><input type="checkbox" data-map-filter="noodles" checked />拉麵 / 麵類</label>
+                <label><input type="checkbox" data-map-filter="curry" checked />咖哩 / 印度料理</label>
+                <label><input type="checkbox" data-map-filter="cafe" checked />咖啡甜點</label>
+                <label><input type="checkbox" data-map-filter="japanese" checked />精進料理 / 日本料理</label>
+                <label><input type="checkbox" data-map-filter="backup" checked />備案地點</label>
+                <label><input type="checkbox" data-map-filter="lodging-nearby" checked />住宿附近</label>
+                <label><input type="checkbox" data-map-filter="group-friendly" checked />多人適合</label>
+              </div>
+            </details>
           </div>
 
           <div id="trip-map" class="trip-map" role="application" aria-label="廣島旅行互動式地圖"></div>
