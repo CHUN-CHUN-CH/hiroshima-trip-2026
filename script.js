@@ -166,23 +166,24 @@ const tripMapFilters = document.querySelectorAll("[data-map-filter]");
 
 const tripMapCategoryMeta = {
   sightseeing: { label: "景點", color: "#2f6fbd", icon: "景" },
-  okonomiyaki: { label: "素食餐廳｜廣島燒", color: "#d87923", icon: "燒" },
-  noodles: { label: "素食餐廳｜拉麵 / 麵類", color: "#c74338", icon: "麵" },
-  curry: { label: "素食餐廳｜咖哩 / 印度料理", color: "#d7a21d", icon: "咖" },
-  cafe: { label: "素食餐廳｜咖啡甜點", color: "#2f8f64", icon: "咖" },
-  japanese: { label: "素食餐廳｜精進料理 / 日本料理", color: "#7b58b8", icon: "和" },
+  okonomiyaki: { label: "餐廳｜廣島燒", color: "#d87923", icon: "燒" },
+  noodles: { label: "餐廳｜拉麵 / 麵類", color: "#c74338", icon: "麵" },
+  curry: { label: "餐廳｜咖哩 / 印度料理", color: "#d7a21d", icon: "咖" },
+  cafe: { label: "餐廳｜咖啡甜點", color: "#2f8f64", icon: "咖" },
+  japanese: { label: "餐廳｜精進料理 / 日本料理", color: "#7b58b8", icon: "和" },
+  izakaya: { label: "餐廳｜居酒屋", color: "#a4452f", icon: "酒" },
+  lateNight: { label: "宵夜", color: "#5d3b8f", icon: "夜" },
   transport: { label: "交通節點", color: "#6b737b", icon: "站" },
-  meeting: { label: "集合地點", color: "#1d2328", icon: "合" },
+  meeting: { label: "集合地點", color: "#1d2328", icon: "集" },
   backup: { label: "備案地點", color: "#4f7895", icon: "備" },
 };
-
 function getTripMapDataUrl() {
   const prefix = location.pathname.includes("/spots/") ? "../" : "";
   return `${prefix}data/map-spots.json?v=dynamic-map1`;
 }
 
 function getTripMapFilters(item) {
-  const filters = [item.type, item.category].filter(Boolean);
+  const filters = [item.type, item.category, ...(item.tags || [])].filter(Boolean);
   if (item.type === "restaurant") {
     filters.push("restaurant");
   }
@@ -192,6 +193,16 @@ function getTripMapFilters(item) {
   return [...new Set(filters)];
 }
 
+function shouldShowTripMapItem(item, filters, checked) {
+  if (checked.includes("all")) {
+    return true;
+  }
+
+  return filters.every((filter) => {
+    const input = document.querySelector(`[data-map-filter="${filter}"]`);
+    return !input || checked.includes(filter);
+  });
+}
 function createTripMapIcon(item) {
   const meta = tripMapCategoryMeta[item.category] || tripMapCategoryMeta[item.type] || tripMapCategoryMeta.sightseeing;
   return L.divIcon({
@@ -203,12 +214,36 @@ function createTripMapIcon(item) {
   });
 }
 
+function getTripMapTabelogUrl(item) {
+  if (item.tabelogUrl) {
+    return item.tabelogUrl;
+  }
+
+  if (item.type !== "restaurant") {
+    return "";
+  }
+
+  const query = item.tabelogQuery || item.name;
+  return `https://tabelog.com/rstLst/?sw=${encodeURIComponent(query)}`;
+}
+
+function getTripMapFoodPageUrl(item) {
+  if (item.foodPageUrl) {
+    return item.foodPageUrl;
+  }
+
+  return item.type === "restaurant" ? "food.html" : "";
+}
 function createTripMapPopup(item) {
   const meta = tripMapCategoryMeta[item.category] || tripMapCategoryMeta[item.type] || tripMapCategoryMeta.sightseeing;
   const vegetarian = item.vegetarianType ? `<p><strong>素食類型：</strong>${item.vegetarianType}</p>` : "";
   const pageLink = item.pageUrl ? `<a href="${item.pageUrl}">詳情頁</a>` : "";
+  const foodPageUrl = getTripMapFoodPageUrl(item);
+  const foodLink = foodPageUrl ? `<a href="${foodPageUrl}">美食清單</a>` : "";
+  const tabelogUrl = getTripMapTabelogUrl(item);
+  const tabelogLink = tabelogUrl ? `<a href="${tabelogUrl}" target="_blank" rel="noreferrer">食べログ</a>` : "";
   const mapLink = item.googleMapUrl ? `<a href="${item.googleMapUrl}" target="_blank" rel="noreferrer">Google Map</a>` : "";
-  const actions = [mapLink, pageLink].filter(Boolean).join("");
+  const actions = [mapLink, tabelogLink, pageLink, foodLink].filter(Boolean).join("");
 
   return `
     <div class="trip-map-popup">
@@ -223,7 +258,6 @@ function createTripMapPopup(item) {
     </div>
   `;
 }
-
 function setTripMapStatus(text) {
   if (tripMapStatus) {
     tripMapStatus.textContent = text;
@@ -259,10 +293,9 @@ async function initTripMap() {
 
     function updateMarkers() {
       const checked = [...tripMapFilters].filter((input) => input.checked).map((input) => input.dataset.mapFilter);
-      const showAll = checked.includes("all");
       markerLayer.clearLayers();
       markers.forEach(({ item, filters, marker }) => {
-        if (showAll || filters.some((filter) => checked.includes(filter))) {
+        if (shouldShowTripMapItem(item, filters, checked)) {
           marker.addTo(markerLayer);
         }
       });

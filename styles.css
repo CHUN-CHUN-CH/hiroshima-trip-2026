@@ -438,7 +438,7 @@ time {
   position: fixed;
   right: 14px;
   bottom: max(14px, env(safe-area-inset-bottom));
-  z-index: 50;
+  z-index: 2500;
   display: grid;
   justify-items: end;
   gap: 10px;
@@ -476,6 +476,8 @@ time {
   background: rgba(255, 255, 255, 0.97);
   box-shadow: var(--shadow);
   backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 2501;
 }
 
 .quick-menu.is-open .quick-menu__panel {
@@ -1004,6 +1006,13 @@ footer p {
   box-shadow: var(--shadow);
 }
 
+.map-filter-panel {
+  position: relative;
+  z-index: 900;
+  display: grid;
+  gap: 8px;
+}
+
 .map-filter-bar {
   display: flex;
   gap: 8px;
@@ -1012,11 +1021,26 @@ footer p {
   scrollbar-width: thin;
 }
 
+.map-filter-bar--primary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: visible;
+  padding-bottom: 0;
+}
+
+.map-filter-bar--detail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: visible;
+  padding: 8px 0 2px;
+}
+
 .map-filter-bar label {
   min-height: 42px;
-  flex: 0 0 auto;
+  min-width: 0;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -1025,6 +1049,38 @@ footer p {
   font-size: 14px;
   font-weight: 900;
   white-space: nowrap;
+}
+
+.map-filter-drawer {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.97);
+  padding: 0 10px;
+}
+
+.map-filter-drawer summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--green);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.map-filter-drawer summary::after {
+  content: "+";
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--green);
+}
+
+.map-filter-drawer[open] summary::after {
+  content: "-";
 }
 
 .map-filter-bar input {
@@ -1300,6 +1356,14 @@ footer p {
 
   .trip-map {
     height: 500px;
+  }
+
+  .map-filter-bar--primary {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .map-filter-bar--detail {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .budget-row {
