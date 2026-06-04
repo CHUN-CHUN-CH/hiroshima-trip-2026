@@ -165,6 +165,7 @@ const tripMapStatus = document.querySelector("[data-map-status]");
 const tripMapMissingList = document.querySelector("[data-map-missing-list]");
 const tripMapMissingCount = document.querySelector("[data-map-missing-count]");
 const tripMapFilters = document.querySelectorAll("[data-map-filter]");
+const tripMapLocateButton = document.querySelector("[data-map-locate]");
 
 const tripMapCategoryMeta = {
   sightseeing: { label: "景點", color: "#2f6fbd", icon: "景" },
@@ -181,7 +182,7 @@ const tripMapCategoryMeta = {
 };
 function getTripMapDataUrl() {
   const prefix = location.pathname.includes("/spots/") ? "../" : "";
-  return `${prefix}data/map-spots.json?v=dynamic-map2`;
+  return `${prefix}data/map-spots.json?v=dynamic-map3`;
 }
 
 function getTripMapFilters(item) {
@@ -214,6 +215,27 @@ function createTripMapIcon(item) {
     iconAnchor: [17, 34],
     popupAnchor: [0, -30],
   });
+}
+
+function createTripMapUserIcon() {
+  return L.divIcon({
+    className: "trip-map-marker trip-map-marker--user",
+    html: "<span>我</span>",
+    iconSize: [34, 34],
+    iconAnchor: [17, 34],
+    popupAnchor: [0, -30],
+  });
+}
+
+function getTripMapDistanceKm(from, to) {
+  const earthRadiusKm = 6371;
+  const toRad = (value) => (value * Math.PI) / 180;
+  const deltaLat = toRad(to.lat - from.lat);
+  const deltaLng = toRad(to.lng - from.lng);
+  const lat1 = toRad(from.lat);
+  const lat2 = toRad(to.lat);
+  const a = Math.sin(deltaLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(deltaLng / 2) ** 2;
+  return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
 function getTripMapTabelogUrl(item) {
@@ -282,6 +304,9 @@ async function initTripMap() {
     const missingItems = items.filter((item) => !Number.isFinite(item.lat) || !Number.isFinite(item.lng));
     const map = L.map(tripMapElement, { scrollWheelZoom: false }).setView([34.395, 132.459], 12);
     const markerLayer = L.layerGroup().addTo(map);
+    let userMarker = null;
+    let userCircle = null;
+    let lastVisibleItems = [];
     const markers = locatedItems.map((item) => ({
       item,
       filters: getTripMapFilters(item),
@@ -296,13 +321,83 @@ async function initTripMap() {
     function updateMarkers() {
       const checked = [...tripMapFilters].filter((input) => input.checked).map((input) => input.dataset.mapFilter);
       markerLayer.clearLayers();
+      lastVisibleItems = [];
       markers.forEach(({ item, filters, marker }) => {
         if (shouldShowTripMapItem(item, filters, checked)) {
           marker.addTo(markerLayer);
+          lastVisibleItems.push(item);
         }
       });
       const visibleCount = markerLayer.getLayers().length;
       setTripMapStatus(`目前顯示 ${visibleCount} 個 marker；${missingItems.length} 筆資料待補座標。`);
+    }
+
+    function showUserLocation(position) {
+      if (tripMapLocateButton) {
+        tripMapLocateButton.disabled = false;
+        tripMapLocateButton.textContent = "我的位置";
+      }
+
+      const userPoint = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+      const accuracy = Math.max(position.coords.accuracy || 80, 40);
+      const nearbyCount = lastVisibleItems.filter((item) => getTripMapDistanceKm(userPoint, item) <= 1).length;
+
+      if (userMarker) {
+        userMarker.setLatLng([userPoint.lat, userPoint.lng]);
+      } else {
+        userMarker = L.marker([userPoint.lat, userPoint.lng], { icon: createTripMapUserIcon(), zIndexOffset: 1000 })
+          .bindPopup("你目前的位置")
+          .addTo(map);
+      }
+
+      if (userCircle) {
+        userCircle.setLatLng([userPoint.lat, userPoint.lng]).setRadius(accuracy);
+      } else {
+        userCircle = L.circle([userPoint.lat, userPoint.lng], {
+          radius: accuracy,
+          color: "#1f78d1",
+          weight: 1,
+          fillColor: "#1f78d1",
+          fillOpacity: 0.12,
+        }).addTo(map);
+      }
+
+      map.setView([userPoint.lat, userPoint.lng], 16, { animate: true });
+      userMarker.openPopup();
+      setTripMapStatus(`已定位到你的位置。附近 1 公里內目前顯示 ${nearbyCount} 個 marker；可用上方篩選切換餐廳、景點或宵夜。`);
+    }
+
+    function handleUserLocationError(error) {
+      if (tripMapLocateButton) {
+        tripMapLocateButton.disabled = false;
+        tripMapLocateButton.textContent = "我的位置";
+      }
+
+      const message = error?.code === 1
+        ? "定位被拒絕。請在瀏覽器或 iPhone 設定允許此網站使用位置。"
+        : "定位失敗。請確認手機 GPS / 網路定位已開啟後再試一次。";
+      setTripMapStatus(message);
+    }
+
+    if (tripMapLocateButton) {
+      tripMapLocateButton.addEventListener("click", () => {
+        if (!("geolocation" in navigator)) {
+          setTripMapStatus("這個瀏覽器不支援定位功能。");
+          return;
+        }
+
+        tripMapLocateButton.disabled = true;
+        tripMapLocateButton.textContent = "定位中...";
+        setTripMapStatus("正在取得你的位置，手機可能會跳出定位權限。");
+        navigator.geolocation.getCurrentPosition(showUserLocation, handleUserLocationError, {
+          enableHighAccuracy: true,
+          timeout: 12000,
+          maximumAge: 60000,
+        });
+      });
     }
 
     tripMapFilters.forEach((input) => {
