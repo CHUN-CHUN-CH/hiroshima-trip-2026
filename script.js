@@ -182,13 +182,16 @@ const tripMapCategoryMeta = {
 };
 function getTripMapDataUrl() {
   const prefix = location.pathname.includes("/spots/") ? "../" : "";
-  return `${prefix}data/map-spots.json?v=dynamic-map3`;
+  return `${prefix}data/map-spots.json?v=dynamic-map4`;
 }
 
 function getTripMapFilters(item) {
   const filters = [item.type, item.category, ...(item.tags || [])].filter(Boolean);
   if (item.type === "restaurant") {
     filters.push("restaurant");
+  }
+  if (item.type === "restaurant" && item.vegetarianType) {
+    filters.push("vegetarian");
   }
   if (item.type === "spot") {
     filters.push("spot");
@@ -197,11 +200,19 @@ function getTripMapFilters(item) {
 }
 
 function shouldShowTripMapItem(item, filters, checked) {
-  if (checked.includes("all")) {
+  const vegetarianOnly = checked.includes("vegetarian");
+  if (vegetarianOnly && !filters.includes("vegetarian")) {
+    return false;
+  }
+
+  if (checked.includes("all") && !vegetarianOnly) {
     return true;
   }
 
   return filters.every((filter) => {
+    if (filter === "vegetarian") {
+      return true;
+    }
     const input = document.querySelector(`[data-map-filter="${filter}"]`);
     return !input || checked.includes(filter);
   });
@@ -406,10 +417,21 @@ async function initTripMap() {
           tripMapFilters.forEach((filter) => {
             filter.checked = input.checked;
           });
+          const vegetarianFilter = [...tripMapFilters].find((filter) => filter.dataset.mapFilter === "vegetarian");
+          if (vegetarianFilter) {
+            vegetarianFilter.checked = false;
+          }
+        } else if (input.dataset.mapFilter === "vegetarian" && input.checked) {
+          const allFilter = [...tripMapFilters].find((filter) => filter.dataset.mapFilter === "all");
+          if (allFilter) {
+            allFilter.checked = false;
+          }
         } else {
           const allFilter = [...tripMapFilters].find((filter) => filter.dataset.mapFilter === "all");
           if (allFilter) {
-            allFilter.checked = [...tripMapFilters].filter((filter) => filter.dataset.mapFilter !== "all").every((filter) => filter.checked);
+            allFilter.checked = [...tripMapFilters]
+              .filter((filter) => !["all", "vegetarian"].includes(filter.dataset.mapFilter))
+              .every((filter) => filter.checked);
           }
         }
         updateMarkers();
