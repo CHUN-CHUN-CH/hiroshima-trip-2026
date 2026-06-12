@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-06-12T11:01:56.362Z",
+  "checked_at": "2026-06-12T14:20:02.074Z",
   "generated_by": "scripts/update-live-status.mjs",
   "statuses": {
     "weather": {
@@ -7,98 +7,98 @@
       "summary": "今日狀態：日本氣象廳目前未列明顯警報/注意報",
       "note": "仍請出發前再看氣溫、雷雨與強風。7 月戶外行程要補水、防曬。",
       "source": "https://www.jma.go.jp/bosai/warning/data/warning/340000.json",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "jrWest": {
       "status": "info",
       "summary": "今日狀態：JR West 頁面已更新，請確認路線細節",
       "note": "抓到官方頁但無法自動判斷是否影響你們路線，請點來源看山陽線、吳線、山陽新幹線等。",
       "source": "https://trafficinfo.westjr.co.jp/chugoku.html",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "ropeway": {
       "status": "caution",
       "summary": "今日狀態：彌山纜車官方頁出現停駛/休止關鍵字",
       "note": "請先改宮島平地行程：嚴島神社、表參道、大聖院、紅葉谷公園。",
       "source": "https://miyajima-ropeway.info/",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "ferry": {
       "status": "ok",
       "summary": "今日狀態：宮島渡輪未抓到停航關鍵字",
       "note": "仍請出發前確認末班船與海象；強風豪雨時要保守。",
       "source": "https://jr-miyajimaferry.co.jp/en/",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "sunset": {
       "status": "ok",
       "summary": "今日狀態：日落時間由前端即時計算",
       "note": "頁面會依目前日期計算廣島日落時間；夕陽拍照請搭配天氣與回程班次。",
       "source": "https://www.timeanddate.com/sun/japan/hiroshima",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "fireworks": {
       "status": "info",
       "summary": "今日狀態：花火活動日尚未到",
       "note": "活動日 2026/7/25 當天請確認是否舉辦、交通管制、雨天或荒天公告。",
       "source": "https://www.gltjp.com/en/directory/item/18911/",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "miyajima": {
       "status": "info",
       "summary": "今日狀態：潮汐已由頁面顯示，渡輪與天氣同步檢查",
       "note": "宮島行程請一起看潮汐、渡輪、天氣與日落。",
       "source": "https://www.miyajima.or.jp/english/",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "peaceMuseum": {
       "status": "info",
       "summary": "今日狀態：資料館營業狀態需看官方公告",
       "note": "和平紀念資料館可能有人潮與最後入館時間，出發前請看官方頁。",
       "source": "https://hpmmuseum.jp/?lang=eng",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "yamatoMuseum": {
       "status": "info",
       "summary": "今日狀態：大和博物館營業狀態需看官方公告",
       "note": "吳市雨天備案核心，若休館請改市區室內景點。",
       "source": "https://yamato-museum.com/en-lp/",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "shukkeien": {
       "status": "info",
       "summary": "今日狀態：縮景園開園狀態需看官方公告",
       "note": "庭園受高溫、雨勢與臨時休園影響，請確認最後入園時間。",
       "source": "https://shukkeien.jp/",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "kintaikyo": {
       "status": "info",
       "summary": "今日狀態：錦帶橋通行狀態需看官方公告",
       "note": "惡劣天候可能影響橋梁體驗；最後一天請先保回程。",
       "source": "https://kintaikyo.iwakuni-city.net/en/",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "iwakuniRopeway": {
       "status": "info",
       "summary": "今日狀態：岩國城纜車狀態需看官方公告",
       "note": "若停駛，就只排錦帶橋與河岸散步。",
       "source": "https://kankou.iwakuni-city.net/ropeway.html",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "saijoSake": {
       "status": "info",
       "summary": "今日狀態：各酒藏營業與試飲需個別確認",
       "note": "西條酒藏時間不一致，試飲不一定每天開放。",
       "source": "https://dive-hiroshima.com/en/explore/1199/",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     },
     "onomichiRopeway": {
       "status": "info",
       "summary": "今日狀態：千光寺纜車狀態需看官方公告",
       "note": "尾道坡道多，若纜車停駛請改短路線與咖啡廳。",
       "source": "https://mt-senkoji-rw.jp/",
-      "checked_at": "2026-06-12T11:01:56.362Z"
+      "checked_at": "2026-06-12T14:20:02.074Z"
     }
   }
 }
