@@ -464,6 +464,7 @@ time {
 }
 
 .quick-menu__panel {
+  order: -1;
   width: min(260px, calc(100vw - 28px));
   max-height: min(70vh, 520px);
   overflow-y: auto;
@@ -1854,6 +1855,39 @@ footer p {
   color: rgba(255, 255, 255, 0.68);
 }
 
+.cinematic-home #transport {
+  margin-top: 58px;
+}
+
+.cinematic-home #transport .section__head {
+  margin-bottom: 14px;
+}
+
+.cinematic-home #transport h2 {
+  font-size: clamp(30px, 8vw, 54px);
+}
+
+.cinematic-home #transport .info-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.cinematic-home #transport .info-grid article {
+  min-height: 0;
+  padding: 14px;
+}
+
+.cinematic-home #transport .info-grid article h3 {
+  margin-bottom: 6px;
+  font-size: 17px;
+}
+
+.cinematic-home #transport .info-grid article p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
 .cinematic-home .action-button {
   border: 1px solid rgba(216, 162, 74, 0.45);
   background: rgba(216, 162, 74, 0.12);
@@ -1943,6 +1977,41 @@ footer p {
 
   .travel-chapter summary {
     padding-top: 150px;
+  }
+
+  .cinematic-home .quick-menu {
+    right: 18px;
+    bottom: calc(18px + env(safe-area-inset-bottom));
+    gap: 12px;
+  }
+
+  .cinematic-home .quick-menu__panel {
+    width: min(320px, calc(100vw - 36px));
+    max-height: min(54svh, 430px);
+    padding: 8px;
+  }
+
+  .cinematic-home .quick-menu__panel a,
+  .cinematic-home .quick-menu__panel button {
+    min-height: 42px;
+    padding: 8px 12px;
+  }
+
+  .cinematic-home #transport {
+    margin-top: 42px;
+  }
+
+  .cinematic-home #transport .section__head {
+    margin-bottom: 10px;
+  }
+
+  .cinematic-home #transport .info-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .cinematic-home #transport .info-grid article {
+    padding: 12px;
   }
 }
 
