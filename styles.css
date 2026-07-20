@@ -1835,6 +1835,27 @@ footer p {
   transition: transform 180ms ease, background 180ms ease;
 }
 
+.cinematic-home .map-filter-drawer {
+  border-color: rgba(216, 162, 74, 0.24);
+  background: rgba(246, 246, 240, 0.94);
+  color: #17211f;
+}
+
+.cinematic-home .map-filter-drawer summary {
+  color: #1f6f61;
+}
+
+.cinematic-home .map-filter-drawer summary::after {
+  background: #06100f;
+  color: #79d4bf;
+}
+
+.cinematic-home .map-filter-drawer .map-filter-bar label {
+  border-color: rgba(23, 33, 31, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  color: #17211f;
+}
+
 .cinematic-home .map-filter-bar label:hover,
 .cinematic-home .map-location-button:hover {
   transform: translateY(-1px);
@@ -1906,13 +1927,15 @@ footer p {
 }
 
 .cinematic-home .notes ul {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(216, 162, 74, 0.24);
+  background: rgba(246, 246, 240, 0.94);
+  color: #17211f;
   backdrop-filter: blur(18px);
 }
 
 .cinematic-home .notes a {
-  color: rgba(255, 255, 255, 0.78);
+  color: #1f6f61;
+  text-shadow: none;
 }
 
 .cinematic-home .quick-menu__button {
