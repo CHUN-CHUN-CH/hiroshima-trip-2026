@@ -22,7 +22,9 @@
         <a href="#schedule">行程</a>
         <a href="#spots">景點</a>
         <a href="#dynamic-map">地圖</a>
+        <a href="#transport">交通</a>
         <a href="#lodging">住宿</a>
+        <a href="#refs">REF</a>
       </nav>
       <div class="hero__content">
         <p class="eyebrow">2026/7/23 - 7/29</p>
@@ -46,6 +48,7 @@
                 <div><dt>時間</dt><dd>18:30</dd></div>
                 <div><dt>地點</dt><dd>長田屋或本通附近集合</dd></div>
                 <div><dt>Google Map</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Nagataya+Hiroshima+Okonomiyaki" target="_blank" rel="noreferrer">長田屋導航</a></dd></div>
+                <div><dt>備註</dt><dd>長田屋葷素都有。</dd></div>
               </dl>
             </article>
             <ol>
@@ -64,6 +67,7 @@
                 <div><dt>時間</dt><dd>08:30</dd></div>
                 <div><dt>地點</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Hiroshima+Station" target="_blank" rel="noreferrer">廣島站</a></dd></div>
                 <div><dt>Google Map</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Onomichi+Station" target="_blank" rel="noreferrer">尾道站導航</a></dd></div>
+                <div><dt>備註</dt><dd>坡道多，穿好走的鞋。</dd></div>
               </dl>
             </article>
             <ol>
@@ -85,6 +89,7 @@
                 <div><dt>時間</dt><dd>16:30</dd></div>
                 <div><dt>地點</dt><dd>本通或飯店大廳集合，買好食物後出發</dd></div>
                 <div><dt>Google Map</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Hiroshima+Port+Ujina" target="_blank" rel="noreferrer">花火會場導航</a></dd></div>
+                <div><dt>備註</dt><dd>花火日人多，提早移動。</dd></div>
               </dl>
             </article>
             <ol>
@@ -107,6 +112,7 @@
                 <div><dt>時間</dt><dd>08:30</dd></div>
                 <div><dt>地點</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Hiroshima+Station" target="_blank" rel="noreferrer">廣島站</a></dd></div>
                 <div><dt>Google Map</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Miyajimaguchi+Station" target="_blank" rel="noreferrer">宮島口導航</a></dd></div>
+                <div><dt>備註</dt><dd>JR、渡輪、纜車可能排隊。</dd></div>
               </dl>
             </article>
             <ol>
@@ -128,6 +134,7 @@
                 <div><dt>時間</dt><dd>08:30</dd></div>
                 <div><dt>地點</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Hiroshima+Station" target="_blank" rel="noreferrer">廣島站</a></dd></div>
                 <div><dt>Google Map</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Kintaikyo+Bridge" target="_blank" rel="noreferrer">錦帶橋導航</a></dd></div>
+                <div><dt>備註</dt><dd>上午岩國，下午西條。</dd></div>
               </dl>
             </article>
             <ol>
@@ -149,6 +156,7 @@
                 <div><dt>時間</dt><dd>09:00</dd></div>
                 <div><dt>地點</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Hiroshima+Station" target="_blank" rel="noreferrer">廣島站</a></dd></div>
                 <div><dt>Google Map</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Kure+Station+Hiroshima" target="_blank" rel="noreferrer">吳站導航</a></dd></div>
+                <div><dt>備註</dt><dd>下午回市區購物。</dd></div>
               </dl>
             </article>
             <ol>
@@ -169,6 +177,7 @@
                 <div><dt>時間</dt><dd>依航班時間調整</dd></div>
                 <div><dt>地點</dt><dd>飯店大廳</dd></div>
                 <div><dt>Google Map</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Hiroshima+Airport" target="_blank" rel="noreferrer">廣島機場導航</a></dd></div>
+                <div><dt>備註</dt><dd>退房、報到、托運。</dd></div>
               </dl>
             </article>
             <ol>
@@ -262,6 +271,19 @@
               <label><input type="checkbox" data-map-filter="transport" checked />交通</label>
               <label><input type="checkbox" data-map-filter="meeting" checked />集合</label>
             </div>
+            <details class="map-filter-drawer">
+              <summary>更多篩選</summary>
+              <div class="map-filter-bar map-filter-bar--detail">
+                <label><input type="checkbox" data-map-filter="vegetarian" />素食</label>
+                <label><input type="checkbox" data-map-filter="okonomiyaki" checked />廣島燒</label>
+                <label><input type="checkbox" data-map-filter="noodles" checked />拉麵 / 麵類</label>
+                <label><input type="checkbox" data-map-filter="curry" checked />咖哩</label>
+                <label><input type="checkbox" data-map-filter="cafe" checked />咖啡甜點</label>
+                <label><input type="checkbox" data-map-filter="japanese" checked />日本料理</label>
+                <label><input type="checkbox" data-map-filter="backup" checked />備案</label>
+                <label><input type="checkbox" data-map-filter="lodging-nearby" checked />住宿附近</label>
+              </div>
+            </details>
           </div>
 
           <div class="map-tools" aria-label="地圖工具">
@@ -294,10 +316,88 @@
             <p>10-17 Kanayamacho, Naka Ward, Hiroshima, 730-0022 日本</p>
             <a class="action-button" href="https://www.google.com/maps/search/?api=1&amp;query=Quintessa+Hotel+Hiroshima+Kanayamacho+10-17" target="_blank" rel="noreferrer">Google Map</a>
           </article>
+          <article>
+            <span>集合點</span>
+            <h3>銀山町 / 胡町</h3>
+            <p>兩邊住宿中間。</p>
+            <a class="action-button action-button--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Kanayamacho+Hiroshima" target="_blank" rel="noreferrer">Google Map</a>
+          </article>
+          <article>
+            <span>附近</span>
+            <h3>本通 / 八丁堀</h3>
+            <p>晚餐、宵夜、購物。</p>
+            <a class="action-button action-button--ghost" href="food.html">餐廳</a>
+          </article>
         </div>
       </section>
 
+      <section id="transport" class="section section--grid">
+        <div class="section__head">
+          <p class="eyebrow">Transport</p>
+          <h2>交通</h2>
+        </div>
+        <div class="info-grid">
+          <article>
+            <h3>尾道</h3>
+            <p>廣島站到尾道約 1.5 小時。</p>
+          </article>
+          <article>
+            <h3>宮島</h3>
+            <p>JR 到宮島口，轉渡輪進島。</p>
+          </article>
+          <article>
+            <h3>花火</h3>
+            <p>廣島港 / 宇品方向，提早出發。</p>
+          </article>
+          <article>
+            <h3>岩國 + 西條</h3>
+            <p>上午錦帶橋，下午酒藏通。</p>
+          </article>
+          <article>
+            <h3>吳市</h3>
+            <p>上午半日，下午回市區。</p>
+          </article>
+          <article>
+            <h3>機場</h3>
+            <p>依航班時間倒推。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="refs" class="section notes">
+        <div class="section__head">
+          <p class="eyebrow">References</p>
+          <h2>REF</h2>
+        </div>
+        <ul>
+          <li><a href="https://whc.unesco.org/en/list/776" target="_blank" rel="noreferrer">UNESCO: Itsukushima Shinto Shrine</a></li>
+          <li><a href="https://whc.unesco.org/en/list/775" target="_blank" rel="noreferrer">UNESCO: Hiroshima Peace Memorial</a></li>
+          <li><a href="https://www.japan.travel/en/spot/889" target="_blank" rel="noreferrer">JNTO: Shukkeien Garden</a></li>
+          <li><a href="https://www.japan-guide.com/e/e3477.html" target="_blank" rel="noreferrer">Japan Guide: Onomichi Temple Walk</a></li>
+          <li><a href="https://yamato-museum.com/en-lp/" target="_blank" rel="noreferrer">Yamato Museum Official</a></li>
+          <li><a href="https://kintaikyo.iwakuni-city.net/en/data.html" target="_blank" rel="noreferrer">Iwakuni City: Kintaikyo Bridge</a></li>
+          <li><a href="https://dive-hiroshima.com/en/explore/1199/" target="_blank" rel="noreferrer">Dive Hiroshima: Saijo Sake Brewery Street</a></li>
+        </ul>
+      </section>
+
     </main>
+
+    <div class="quick-menu" data-menu>
+      <button class="quick-menu__button" type="button" aria-expanded="false" aria-controls="quick-menu-panel" data-menu-toggle>☰</button>
+      <nav id="quick-menu-panel" class="quick-menu__panel" aria-label="快捷選單" data-menu-panel>
+        <a href="#schedule">行程</a>
+        <a href="#spots">景點</a>
+        <a href="#dynamic-map">地圖</a>
+        <a href="#transport">交通</a>
+        <a href="#lodging">住宿</a>
+        <a href="food.html">餐廳</a>
+        <a href="weather.html">天氣</a>
+        <a href="checklist.html">Checklist</a>
+        <a href="budget.html">預算</a>
+        <a href="#refs">REF</a>
+        <button type="button" data-scroll-top>回到頂部</button>
+      </nav>
+    </div>
 
     <footer>
       <p>Hiroshima Trip 2026</p>
