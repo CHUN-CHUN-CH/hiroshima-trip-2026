@@ -1501,7 +1501,7 @@ footer p {
   min-height: 100svh;
   align-items: end;
   padding: 28px 18px 12vh;
-  overflow: hidden;
+  overflow: visible;
   background:
     linear-gradient(180deg, rgba(7, 9, 11, 0.1), rgba(7, 9, 11, 0.82) 82%),
     linear-gradient(110deg, rgba(8, 11, 13, 0.2), rgba(8, 11, 13, 0.82)),
@@ -1615,7 +1615,7 @@ footer p {
 .cinematic-home .section {
   width: min(1180px, calc(100% - 32px));
   margin-top: 88px;
-  scroll-margin-top: 94px;
+  scroll-margin-top: 132px;
 }
 
 .cinematic-home .section__head {
@@ -1831,25 +1831,34 @@ footer p {
 }
 
 .cinematic-home #spots .spot-grid {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 8px;
 }
 
 .cinematic-home #spots .spot-card {
   min-height: 0;
-  height: 86px;
+  height: 64px;
   align-content: center;
-  padding: 10px 12px;
+  padding: 9px 10px;
+  border-radius: 8px;
 }
 
 .cinematic-home #spots .spot-card strong {
-  font-size: 18px;
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 1.22;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .cinematic-home #spots .spot-card p {
-  margin: 4px 0 0;
-  font-size: 14px;
-  line-height: 1.5;
+  display: none;
+}
+
+.cinematic-home #spots .spot-card span {
+  font-size: 12px;
+  line-height: 1.1;
 }
 
 .cinematic-home .map-shell {
@@ -2080,12 +2089,12 @@ footer p {
 
   .cinematic-home #spots .spot-card {
     min-height: 0;
-    height: 72px;
-    padding: 9px 10px;
+    height: 58px;
+    padding: 8px 9px;
   }
 
   .cinematic-home #spots .spot-card strong {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.25;
   }
 
