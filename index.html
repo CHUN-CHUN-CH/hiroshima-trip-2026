@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="styles.css?v=dynamic-map5" />
   </head>
-  <body>
+  <body class="cinematic-home">
+    <div class="cursor-light" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
     <header id="top" class="hero">
       <nav class="topbar" aria-label="主要導覽">
         <a href="#schedule">行程</a>
@@ -27,20 +29,38 @@
         <a href="#refs">REF</a>
       </nav>
       <div class="hero__content">
-        <p class="eyebrow">2026/7/23 - 7/29</p>
-        <h1>廣島朋友旅行手冊</h1>
+        <p class="eyebrow">Hiroshima / July 2026</p>
+        <h1>廣島，夏天開始以前</h1>
+        <p>七天。海、坡道、神社、花火、酒藏，慢慢往光裡走。</p>
+        <div class="hero-route" aria-label="旅行路線">
+          <span>TAIWAN</span>
+          <i></i>
+          <span>HIROSHIMA</span>
+          <i></i>
+          <span>MIYAJIMA</span>
+          <i></i>
+          <span>HOME</span>
+        </div>
       </div>
     </header>
 
     <main>
       <section id="schedule" class="section">
         <div class="section__head">
-          <p class="eyebrow">Schedule</p>
+          <p class="eyebrow">The Journey</p>
           <h2>每日行程</h2>
         </div>
 
-        <div class="drawer-list">
-          <details id="day-723" class="drawer">
+        <div class="journey-line" aria-hidden="true">
+          <span>Taiwan</span>
+          <span>Hiroshima</span>
+          <span>Onomichi</span>
+          <span>Miyajima</span>
+          <span>Home</span>
+        </div>
+
+        <div class="drawer-list cinematic-chapters">
+          <details id="day-723" class="drawer travel-chapter scene-garden" open>
             <summary><span>7/23 四</span><strong>抵達日：縮景園、廣島城、長田屋廣島燒</strong></summary>
             <article class="meet-card">
               <h3>集合資訊</h3>
@@ -59,7 +79,7 @@
             </ol>
           </details>
 
-          <details id="day-724" class="drawer drawer--must">
+          <details id="day-724" class="drawer drawer--must travel-chapter scene-onomichi">
             <summary><span>7/24 五</span><strong>貓之城尾道：千光寺纜車、貓之細道、ONOMICHI U2</strong></summary>
             <article class="meet-card">
               <h3>集合資訊</h3>
@@ -81,7 +101,7 @@
             </ol>
           </details>
 
-          <details id="day-725" class="drawer drawer--must">
+          <details id="day-725" class="drawer drawer--must travel-chapter scene-fireworks">
             <summary><span>7/25 六</span><strong>花火節日：和平公園、紙鶴塔、超市補給、晚上花火</strong></summary>
             <article class="meet-card">
               <h3>集合資訊</h3>
@@ -104,7 +124,7 @@
             </ol>
           </details>
 
-          <details id="day-726" class="drawer drawer--must">
+          <details id="day-726" class="drawer drawer--must travel-chapter scene-miyajima">
             <summary><span>7/26 日</span><strong>宮島一日遊：嚴島神社、現烤生蠔、紅葉饅頭、彌山纜車</strong></summary>
             <article class="meet-card">
               <h3>集合資訊</h3>
@@ -126,7 +146,7 @@
             </ol>
           </details>
 
-          <details id="day-727" class="drawer drawer--must">
+          <details id="day-727" class="drawer drawer--must travel-chapter scene-bridge">
             <summary><span>7/27 一</span><strong>岩國錦帶橋 + 西條酒藏通：霜淇淋、清酒、美酒鍋</strong></summary>
             <article class="meet-card">
               <h3>集合資訊</h3>
@@ -148,7 +168,7 @@
             </ol>
           </details>
 
-          <details id="day-728" class="drawer">
+          <details id="day-728" class="drawer travel-chapter scene-kure">
             <summary><span>7/28 二</span><strong>上午海事之都吳市，下午廣島市區商店街購物</strong></summary>
             <article class="meet-card">
               <h3>集合資訊</h3>
@@ -169,7 +189,7 @@
             </ol>
           </details>
 
-          <details id="day-729" class="drawer">
+          <details id="day-729" class="drawer travel-chapter scene-home">
             <summary><span>7/29 三</span><strong>返台</strong></summary>
             <article class="meet-card">
               <h3>集合資訊</h3>
@@ -192,7 +212,7 @@
 
       <section id="spots" class="section">
         <div class="section__head">
-          <p class="eyebrow">Spot Guide</p>
+          <p class="eyebrow">Scenes</p>
           <h2>景點總覽</h2>
         </div>
 
@@ -257,7 +277,7 @@
 
       <section id="dynamic-map" class="section dynamic-map-section">
         <div class="section__head">
-          <p class="eyebrow">Trip Map</p>
+          <p class="eyebrow">Route</p>
           <h2>地圖</h2>
         </div>
 
@@ -333,7 +353,7 @@
 
       <section id="transport" class="section section--grid">
         <div class="section__head">
-          <p class="eyebrow">Transport</p>
+          <p class="eyebrow">Movement</p>
           <h2>交通</h2>
         </div>
         <div class="info-grid">
