@@ -1494,7 +1494,7 @@ footer p {
 
 .cinematic-home .quick-menu {
   position: fixed;
-  z-index: 2500;
+  z-index: 2147483000;
 }
 
 .cinematic-home .hero {
@@ -1532,6 +1532,8 @@ footer p {
 }
 
 .cinematic-home .topbar {
+  position: fixed;
+  z-index: 2147482000;
   top: 14px;
   border: 1px solid rgba(255, 255, 255, 0.17);
   border-radius: 999px;
@@ -1829,20 +1831,24 @@ footer p {
 }
 
 .cinematic-home #spots .spot-grid {
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
 }
 
 .cinematic-home #spots .spot-card {
-  min-height: 132px;
-  padding: 14px;
+  min-height: 0;
+  height: 86px;
+  align-content: center;
+  padding: 10px 12px;
 }
 
 .cinematic-home #spots .spot-card strong {
-  font-size: 21px;
+  font-size: 18px;
 }
 
 .cinematic-home #spots .spot-card p {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
+  font-size: 14px;
   line-height: 1.5;
 }
 
@@ -2036,10 +2042,11 @@ footer p {
     padding-top: 150px;
   }
 
-  .cinematic-home .quick-menu {
+.cinematic-home .quick-menu {
     right: 18px;
     bottom: calc(18px + env(safe-area-inset-bottom));
     gap: 12px;
+    z-index: 2147483000;
   }
 
   .cinematic-home .quick-menu__panel {
@@ -2067,20 +2074,27 @@ footer p {
   }
 
   .cinematic-home #spots .spot-grid {
+    grid-template-columns: 1fr 1fr;
     gap: 8px;
   }
 
   .cinematic-home #spots .spot-card {
-    min-height: 118px;
-    padding: 12px;
+    min-height: 0;
+    height: 72px;
+    padding: 9px 10px;
   }
 
   .cinematic-home #spots .spot-card strong {
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .cinematic-home #spots .spot-card span {
+    font-size: 12px;
   }
 
   .cinematic-home #spots .spot-card p {
-    font-size: 14px;
+    display: none;
   }
 
   .cinematic-home #transport .section__head {
