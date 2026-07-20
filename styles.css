@@ -1487,10 +1487,14 @@ footer p {
 
 .cinematic-home .hero,
 .cinematic-home main,
-.cinematic-home footer,
-.cinematic-home .quick-menu {
+.cinematic-home footer {
   position: relative;
   z-index: 3;
+}
+
+.cinematic-home .quick-menu {
+  position: fixed;
+  z-index: 2500;
 }
 
 .cinematic-home .hero {
