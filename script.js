@@ -25,6 +25,51 @@ const choices = {
   },
 };
 
+const cinematicBody = document.querySelector(".cinematic-home");
+
+if (cinematicBody) {
+  const progressBar = document.querySelector("[data-scroll-progress]");
+  const revealTargets = document.querySelectorAll(
+    ".travel-chapter, .spot-card, .info-grid article, .map-shell"
+  );
+
+  function updateCinematicProgress() {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    document.documentElement.style.setProperty("--parallax-y", `${window.scrollY * 0.12}px`);
+
+    if (progressBar) {
+      progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+    }
+  }
+
+  window.addEventListener("scroll", updateCinematicProgress, { passive: true });
+  updateCinematicProgress();
+
+  window.addEventListener("pointermove", (event) => {
+    document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
+    document.documentElement.style.setProperty("--cursor-y", `${event.clientY}px`);
+  });
+
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.16 }
+    );
+
+    revealTargets.forEach((target) => revealObserver.observe(target));
+  } else {
+    revealTargets.forEach((target) => target.classList.add("is-visible"));
+  }
+}
+
 const buttons = document.querySelectorAll("[data-choice]");
 const choiceTitle = document.querySelector("#choice-title");
 const choiceText = document.querySelector("#choice-text");
