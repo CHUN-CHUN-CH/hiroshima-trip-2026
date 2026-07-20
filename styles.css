@@ -1816,6 +1816,36 @@ footer p {
   color: rgba(255, 255, 255, 0.68);
 }
 
+.cinematic-home #spots {
+  margin-top: 58px;
+}
+
+.cinematic-home #spots .section__head {
+  margin-bottom: 14px;
+}
+
+.cinematic-home #spots h2 {
+  font-size: clamp(30px, 8vw, 54px);
+}
+
+.cinematic-home #spots .spot-grid {
+  gap: 10px;
+}
+
+.cinematic-home #spots .spot-card {
+  min-height: 132px;
+  padding: 14px;
+}
+
+.cinematic-home #spots .spot-card strong {
+  font-size: 21px;
+}
+
+.cinematic-home #spots .spot-card p {
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+
 .cinematic-home .map-shell {
   padding: 14px;
 }
@@ -2026,6 +2056,31 @@ footer p {
 
   .cinematic-home #transport {
     margin-top: 42px;
+  }
+
+  .cinematic-home #spots {
+    margin-top: 42px;
+  }
+
+  .cinematic-home #spots .section__head {
+    margin-bottom: 10px;
+  }
+
+  .cinematic-home #spots .spot-grid {
+    gap: 8px;
+  }
+
+  .cinematic-home #spots .spot-card {
+    min-height: 118px;
+    padding: 12px;
+  }
+
+  .cinematic-home #spots .spot-card strong {
+    font-size: 20px;
+  }
+
+  .cinematic-home #spots .spot-card p {
+    font-size: 14px;
   }
 
   .cinematic-home #transport .section__head {
